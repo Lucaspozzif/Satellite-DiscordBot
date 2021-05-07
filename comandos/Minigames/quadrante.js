@@ -134,8 +134,8 @@ module.exports = {
             ctx.fillStyle = cor
             ctx.beginPath()
             ctx.arc(x, y, g / 10, 0, 2 * Math.PI)
-            ctx.fill()
-            ctx.closePath()
+            ctx.fill();
+            ctx.closePath();
         }
     }
 }
