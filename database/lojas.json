@@ -1,0 +1,1251 @@
+{
+    "naves": [
+        {
+            "nome": "Cápsula pequena",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 14000,
+            "atkMax": 30,
+            "defMax": 15,
+            "hp": 1000,
+            "dur": 100,
+            "energiaMax": 180,
+            "combustivelMax": 180,
+            "oxigenioMax": 180,
+            "carbonoMax": 180,
+            "aguaMax": 180,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Cápsula da federação",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 20000,
+            "atkMax": 50,
+            "defMax": 25,
+            "hp": 1000,
+            "dur": 100,
+            "energiaMax": 250,
+            "combustivelMax": 250,
+            "oxigenioMax": 250,
+            "carbonoMax": 250,
+            "aguaMax": 250,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Cápsula aprimorada",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 25000,
+            "atkMax": 60,
+            "defMax": 30,
+            "hp": 1000,
+            "dur": 100,
+            "energiaMax": 280,
+            "combustivelMax": 280,
+            "oxigenioMax": 280,
+            "carbonoMax": 280,
+            "aguaMax": 280,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Nave pequena",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 50000,
+            "atkMax": 100,
+            "defMax": 50,
+            "hp": 2500,
+            "dur": 100,
+            "energiaMax": 400,
+            "combustivelMax": 400,
+            "oxigenioMax": 400,
+            "carbonoMax": 400,
+            "aguaMax": 400,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Nave pequena aprimorada ",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 80000,
+            "atkMax": 130,
+            "defMax": 65,
+            "hp": 2500,
+            "dur": 100,
+            "energiaMax": 450,
+            "combustivelMax": 450,
+            "oxigenioMax": 450,
+            "carbonoMax": 450,
+            "aguaMax": 450,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Nave padrão",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 100000,
+            "atkMax": 150,
+            "defMax": 75,
+            "hp": 2500,
+            "dur": 100,
+            "energiaMax": 500,
+            "combustivelMax": 500,
+            "oxigenioMax": 500,
+            "carbonoMax": 500,
+            "aguaMax": 500,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Nave Soft",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 150000,
+            "atkMax": 200,
+            "defMax": 100,
+            "hp": 2500,
+            "dur": 100,
+            "energiaMax": 580,
+            "combustivelMax": 580,
+            "oxigenioMax": 580,
+            "carbonoMax": 580,
+            "aguaMax": 580,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Espaçonave \"Electron\"",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 400000,
+            "atkMax": 200,
+            "defMax": 100,
+            "hp": 4000,
+            "dur": 100,
+            "energiaMax": 1200,
+            "combustivelMax": 600,
+            "oxigenioMax": 600,
+            "carbonoMax": 600,
+            "aguaMax": 600,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Espaçonave \"Hidrogen\"",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 400000,
+            "atkMax": 200,
+            "defMax": 100,
+            "hp": 4000,
+            "dur": 100,
+            "energiaMax": 600,
+            "combustivelMax": 1200,
+            "oxigenioMax": 600,
+            "carbonoMax": 600,
+            "aguaMax": 600,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Espaçonave \"Oxigen\"",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 400000,
+            "atkMax": 200,
+            "defMax": 100,
+            "hp": 4000,
+            "dur": 100,
+            "energiaMax": 600,
+            "combustivelMax": 600,
+            "oxigenioMax": 1200,
+            "carbonoMax": 1200,
+            "aguaMax": 600,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Espaçonave \"Aqua\"",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 400000,
+            "atkMax": 200,
+            "defMax": 100,
+            "hp": 4000,
+            "dur": 100,
+            "energiaMax": 600,
+            "combustivelMax": 600,
+            "oxigenioMax": 600,
+            "carbonoMax": 600,
+            "aguaMax": 1200,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Espaçonave da federação galáctica",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 1000000,
+            "atkMax": 400,
+            "defMax": 199,
+            "hp": 6000,
+            "dur": 100,
+            "energiaMax": 800,
+            "combustivelMax": 800,
+            "oxigenioMax": 800,
+            "carbonoMax": 800,
+            "aguaMax": 800,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        },
+        {
+            "nome": "Espaçonave da federação galáctica ilegalmente aprimorada",
+            "cat": "nave",
+            "lvl": 1,
+            "valor": 1500000,
+            "atkMax": 500,
+            "defMax": 250,
+            "hp": 6000,
+            "dur": 100,
+            "energiaMax": 1000,
+            "combustivelMax": 1000,
+            "oxigenioMax": 1000,
+            "carbonoMax": 1000,
+            "aguaMax": 1000,
+            "canhao": {},
+            "escudo": {},
+            "motor": {},
+            "gerador": {},
+            "catalisador": {},
+            "extrator": {}
+        }
+    ],
+    "canhoes": [
+        {
+            "nome": "propulsor de fragmentos acelerado",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 800,
+            "att": 60,
+            "dur": 100
+        },
+        {
+            "nome": "propulsor mecânico",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 1200,
+            "att": 65,
+            "dur": 100
+        },
+        {
+            "nome": "canhão de partículas",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 3000,
+            "att": 70,
+            "dur": 100
+        },
+        {
+            "nome": "canhão magnético",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 5000,
+            "att": 80,
+            "dur": 100
+        },
+        {
+            "nome": "canhão magnético aprimorado",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 6000,
+            "att": 90,
+            "dur": 100
+        },
+        {
+            "nome": "canhão eletromagnético",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 10000,
+            "att": 120,
+            "dur": 100
+        },
+        {
+            "nome": "laser monofocal",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 15000,
+            "att": 130,
+            "dur": 100
+        },
+        {
+            "nome": "laser bifocal",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 20000,
+            "att": 150,
+            "dur": 100
+        },
+        {
+            "nome": "laser multifocal",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 25000,
+            "att": 190,
+            "dur": 100
+        },
+        {
+            "nome": "canhão de múltiplos lasers",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 30000,
+            "att": 220,
+            "dur": 100
+        },
+        {
+            "nome": "feixe de lasers eletromagnéticos da 4ª grande guerra",
+            "cat": "canhao",
+            "lvl": 1,
+            "valor": 50000,
+            "att": 300,
+            "dur": 100
+        }
+    ],
+    "escudos": [
+        {
+            "nome": "chapa de carbono",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 200,
+            "att": 30,
+            "dur": 100
+        },
+        {
+            "nome": "chapa de Titânio",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 300,
+            "att": 50,
+            "dur": 100
+        },
+        {
+            "nome": "chapa eletromagnética",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 1000,
+            "att": 80,
+            "dur": 100
+        },
+        {
+            "nome": "escudo eletromagnético",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 2500,
+            "att": 100,
+            "dur": 100
+        },
+        {
+            "nome": "escudo eletromagnético virtual",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 3550,
+            "att": 120,
+            "dur": 100
+        },
+        {
+            "nome": "campo de força de nióbio",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 5000,
+            "att": 150,
+            "dur": 100
+        },
+        {
+            "nome": "campo de força eletromagnético 360°",
+            "cat": "escudo",
+            "lvl": 1,
+            "valor": 10000,
+            "att": 200,
+            "dur": 100
+        }
+    ],
+    "motores": [
+        {
+            "nome": "propulsor padrão de combustível sólido",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 10000,
+            "att": 5,
+            "dur": 100
+        },
+        {
+            "nome": "propulsor ampliado  de combustível sólido",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 15000,
+            "att": 8,
+            "dur": 100
+        },
+        {
+            "nome": "bipropulsor padrão de combustível sólido",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 25000,
+            "att": 12,
+            "dur": 100
+        },
+        {
+            "nome": "polipropulsor padrão de combustível sólido",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 32000,
+            "att": 15,
+            "dur": 100
+        },
+        {
+            "nome": "propulsor de combustível líquido",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 40000,
+            "att": 18,
+            "dur": 100
+        },
+        {
+            "nome": "motor de hidrogênio",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 50000,
+            "att": 24,
+            "dur": 100
+        },
+        {
+            "nome": "motor de hidrogênio líquido",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 60000,
+            "att": 30,
+            "dur": 100
+        },
+        {
+            "nome": "colisor de hidrogênio",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 100000,
+            "att": 35,
+            "dur": 100
+        },
+        {
+            "nome": "colisor de césio",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 150000,
+            "att": 40,
+            "dur": 100
+        },
+        {
+            "nome": "motor de fissão nuclear",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 300000,
+            "att": 50,
+            "dur": 100
+        },
+        {
+            "nome": "canhão de prótons",
+            "cat": "motor",
+            "lvl": 1,
+            "valor": 500000,
+            "att": 60,
+            "dur": 100
+        }
+    ],
+    "geradores": [
+        {
+            "nome": "painel solar de alta eficiência",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 5000,
+            "att": 150,
+            "dur": 100
+        },
+        {
+            "nome": "gerador térmico de água",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 8000,
+            "att": 200,
+            "dur": 100
+        },
+        {
+            "nome": "gerador térmico de hidrogênio",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 12000,
+            "att": 230,
+            "dur": 100
+        },
+        {
+            "nome": "acelerador gravitacional",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 25000,
+            "att": 300,
+            "dur": 100
+        },
+        {
+            "nome": "acelerador gravitacional aprimorado",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 35000,
+            "att": 400,
+            "dur": 100
+        },
+        {
+            "nome": "microusina nuclear de césio",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 150000,
+            "att": 500,
+            "dur": 100
+        },
+        {
+            "nome": "microusina nuclear de urânio",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 200000,
+            "att": 800,
+            "dur": 100
+        },
+        {
+            "nome": "microusina nuclear de urânio enriquecido",
+            "cat": "gerador",
+            "lvl": 1,
+            "valor": 400000,
+            "att": 1000,
+            "dur": 100
+        }
+    ],
+    "catalisadores": [
+        {
+            "nome": "placa de bactérias",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 4000,
+            "att": 150,
+            "dur": 100
+        },
+        {
+            "nome": "fazenda de algas pequena",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 10000,
+            "att": 200,
+            "dur": 100
+        },
+        {
+            "nome": "filtro biológico aprimorado",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 15000,
+            "att": 280,
+            "dur": 100
+        },
+        {
+            "nome": "filtro químico pequeno",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 20000,
+            "att": 320,
+            "dur": 100
+        },
+        {
+            "nome": "filtro biológico aprimorado",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 25000,
+            "att": 400,
+            "dur": 100
+        },
+        {
+            "nome": "microusina de eletrólise",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 35000,
+            "att": 500,
+            "dur": 100
+        },
+        {
+            "nome": "microusina de glicose",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 42000,
+            "att": 650,
+            "dur": 100
+        },
+        {
+            "nome": "microusina de glicose aprimorada",
+            "cat": "catalisador",
+            "lvl": 1,
+            "valor": 50000,
+            "att": 850,
+            "dur": 100
+        }
+    ],
+    "extratores": [
+        {
+            "nome": "broca pequena",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 30000,
+            "att": 150,
+            "dur": 100
+        },
+        {
+            "nome": "broca pardão",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 60000,
+            "att": 290,
+            "dur": 100
+        },
+        {
+            "nome": "broca grande",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 100000,
+            "att": 230,
+            "dur": 100
+        },
+        {
+            "nome": "pá de coleta de amostra de solo",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 200000,
+            "att": 290,
+            "dur": 100
+        },
+        {
+            "nome": "laser cortador de rocha",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 300000,
+            "att": 350,
+            "dur": 100
+        },
+        {
+            "nome": "laser térmico de longo alcançe",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 380000,
+            "att": 400,
+            "dur": 100
+        },
+        {
+            "nome": "raio trator de curto alcançe",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 450000,
+            "att": 500,
+            "dur": 100
+        },
+        {
+            "nome": "raio trator de longo alcançe",
+            "cat": "extrator",
+            "lvl": 1,
+            "valor": 600000,
+            "att": 750,
+            "dur": 100
+        }
+    ],
+    "trajes": [
+        {
+            "nome": "Traje espacial essencial",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 25,
+            "defMax": 25,
+            "energiaMax": 25,
+            "oxigenioMax": 25,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje espacial da 1ª era",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 12000,
+            "atkMax": 25,
+            "defMax": 25,
+            "energiaMax": 30,
+            "oxigenioMax": 30,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje espacial da 2ª era",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 30,
+            "defMax": 30,
+            "energiaMax": 25,
+            "oxigenioMax": 25,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje do explorador cósmico básico",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 40,
+            "defMax": 40,
+            "energiaMax": 40,
+            "oxigenioMax": 40,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje de exploração de exoplanetas",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 40,
+            "defMax": 40,
+            "energiaMax": 50,
+            "oxigenioMax": 50,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje de exploração cósmica de longo prazo",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 40,
+            "defMax": 40,
+            "energiaMax": 60,
+            "oxigenioMax": 60,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje de colonização espacial autossuficiente",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 50,
+            "defMax": 50,
+            "energiaMax": 80,
+            "oxigenioMax": 80,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje de colonização cósmica interplanetária",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 100,
+            "defMax": 100,
+            "energiaMax": 75,
+            "oxigenioMax": 75,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje de guerra cósmica interplanetária",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 75,
+            "defMax": 75,
+            "energiaMax": 100,
+            "oxigenioMax": 100,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje espacial da federação galática",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 130,
+            "defMax": 130,
+            "energiaMax": 130,
+            "oxigenioMax": 130,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje espacial da federação galática aprimorado para guerra",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 150,
+            "defMax": 150,
+            "energiaMax": 115,
+            "oxigenioMax": 115,
+            "arma": {},
+            "defesa": {}
+        },
+        {
+            "nome": "Traje espacial dafederação galática aprimorado para exploração",
+            "cat": "traje",
+            "lvl": 1,
+            "valor": 8000,
+            "atkMax": 115,
+            "defMax": 115,
+            "energiaMax": 150,
+            "oxigenioMax": 150,
+            "arma": {},
+            "defesa": {}
+        }
+    ],
+    "armas": [
+        {
+            "nome": "arma de fragmentos para baixa gravidade",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 2500,
+            "att": 8,
+            "dur": 100
+        },
+        {
+            "nome": "arma de fragmentos para atmosferas rarefeitas",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 4500,
+            "att": 10,
+            "dur": 100
+        },
+        {
+            "nome": "arma de fragmentos para alta gravidade e pressão",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 10000,
+            "att": 15,
+            "dur": 100
+        },
+        {
+            "nome": "arma de energia",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 20000,
+            "att": 20,
+            "dur": 100
+        },
+        {
+            "nome": "arma eletromagnética",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 25000,
+            "att": 23,
+            "dur": 100
+        },
+        {
+            "nome": "arma eletromagnética aprimorada",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 29000,
+            "att": 27,
+            "dur": 100
+        },
+        {
+            "nome": "lâminas de combate para bestas extraterrestres",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 35000,
+            "att": 30,
+            "dur": 100
+        },
+        {
+            "nome": "lâminas de combate em baixa gravidade",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 40000,
+            "att": 35,
+            "dur": 100
+        },
+        {
+            "nome": "lâminas de combate em alta gravidade",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 50000,
+            "att": 38,
+            "dur": 100
+        },
+        {
+            "nome": "lâminas de combate adaptável a exoplanetas",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 60000,
+            "att": 45,
+            "dur": 100
+        },
+        {
+            "nome": "lâminas eletromagnéticas",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 100000,
+            "att": 50,
+            "dur": 100
+        },
+        {
+            "nome": "arma de luz",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 150000,
+            "att": 60,
+            "dur": 100
+        },
+        {
+            "nome": "sabre de luz",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 250000,
+            "att": 68,
+            "dur": 100
+        },
+        {
+            "nome": "sabre de luz da federação galática",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 500000,
+            "att": 72,
+            "dur": 100
+        },
+        {
+            "nome": "sabre de luz da federação galática aprimorado para exoplanetas",
+            "cat": "arma",
+            "lvl": 1,
+            "valor": 1500000,
+            "att": 90,
+            "dur": 100
+        }
+    ],
+    "defesas": [
+        {
+            "nome": "Escudo de alumínio",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 500,
+            "att": 6,
+            "dur": 100
+        },
+        {
+            "nome": "Escudo de fibra de carbono",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 1000,
+            "att": 9,
+            "dur": 100
+        },
+        {
+            "nome": "Escudo de aerogel reforçado",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 1500,
+            "att": 12,
+            "dur": 100
+        },
+        {
+            "nome": "Escudo de grafeno reforçado com cristais de diamante",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 5000,
+            "att": 15,
+            "dur": 100
+        },
+        {
+            "nome": "Escudo geométrico de fibra de carbono",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 4000,
+            "att": 20,
+            "dur": 100
+        },
+        {
+            "nome": "Escudo geométrico de grafeno",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 6000,
+            "att": 25,
+            "dur": 100
+        },
+        {
+            "nome": "Repulsor eletromagnético de curto alcançe",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 10000,
+            "att": 30,
+            "dur": 100
+        },
+        {
+            "nome": "Repulsor eletromagnético de longo alcançe",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 12000,
+            "att": 35,
+            "dur": 100
+        },
+        {
+            "nome": "Ondulador hipersônico",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 16000,
+            "att": 42,
+            "dur": 100
+        },
+        {
+            "nome": "Campo de força supersônico",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 20000,
+            "att": 50,
+            "dur": 100
+        },
+        {
+            "nome": "campo de força hipersônico",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 25000,
+            "att": 58,
+            "dur": 100
+        },
+        {
+            "nome": "campo de força eletromagnético de curto alcançe",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 30000,
+            "att": 62,
+            "dur": 100
+        },
+        {
+            "nome": "Campo de força eletromangético de longo alcançe",
+            "cat": "defesa",
+            "lvl": 1,
+            "valor": 60000,
+            "att": 80,
+            "dur": 100
+        }
+    ],
+    "comidas": [
+        {
+            "nome": "Ração espacial 🥫",
+            "cat": "consumivel",
+            "valor": 30,
+            "fome": 30,
+            "sede": 5,
+            "sono": 0,
+            "hp": 0
+        },
+        {
+            "nome": "Frutas em conserva",
+            "cat": "consumivel",
+            "valor": 200,
+            "fome": 25,
+            "sede": 20,
+            "sono": 0,
+            "hp": 10
+        },
+        {
+            "nome": "Macarrão instantâneo",
+            "cat": "consumivel",
+            "valor": 28,
+            "fome": 35,
+            "sede": -5,
+            "sono": 0,
+            "hp": 0
+        },
+        {
+            "nome": "Cereal",
+            "cat": "consumivel",
+            "valor": 25,
+            "fome": 30,
+            "sede": 0,
+            "sono": 0,
+            "hp": 5
+        },
+        {
+            "nome": "carne em conserva",
+            "cat": "consumivel",
+            "valor": 300,
+            "fome": 50,
+            "sede": 5,
+            "sono": 0,
+            "hp": 25
+        },
+        {
+            "nome": "chá de camomila",
+            "cat": "consumivel",
+            "valor": 40,
+            "fome": 10,
+            "sede": 25,
+            "sono": 10,
+            "hp": 10
+        },
+        {
+            "nome": "café",
+            "cat": "consumivel",
+            "valor": 40,
+            "fome": 5,
+            "sede": 25,
+            "sono": 30,
+            "hp": 0
+        },
+        {
+            "nome": "Refrigerante de cola",
+            "cat": "consumivel",
+            "valor": 20,
+            "fome": 0,
+            "sede": 25,
+            "sono": 10,
+            "hp": -5
+        },
+        {
+            "nome": "Guaraná naná",
+            "cat": "consumivel",
+            "valor": 30,
+            "fome": 0,
+            "sede": 30,
+            "sono": 10,
+            "hp": 0
+        },
+        {
+            "nome": "Cerveja ",
+            "cat": "consumivel",
+            "valor": 50,
+            "fome": 0,
+            "sede": 5,
+            "sono": -20,
+            "hp": 4
+        }
+    ],
+    "kitsReparo": [
+        {
+            "nome":"Kit de reparo de estado alpha",
+            "cat":"kitReparo",
+            "valor": 500
+        },
+        {
+            "nome":"Kit de upgrade de nível alpha",
+            "cat":"kitReparo",
+            "valor": 500
+        },
+        {
+            "nome":"Kit de reparo de estado beta",
+            "cat":"kitReparo",
+            "valor": 1000
+        },
+        {
+            "nome":"Kit de upgrade de nível beta",
+            "cat":"kitReparo",
+            "valor": 1000
+        },
+        {
+            "nome":"Kit de reparo de estado delta",
+            "cat":"kitReparo",
+            "valor": 2000
+        },
+        {
+            "nome":"Kit de upgrade de nível delta",
+            "cat":"kitReparo",
+            "valor": 2000
+        },
+        {
+            "nome":"Kit de reparo de estado lambda",
+            "cat":"kitReparo",
+            "valor": 3000
+        },
+        {
+            "nome":"Kit de upgrade de nível lambda",
+            "cat":"kitReparo",
+            "valor": 3000
+        },
+        {
+            "nome":"Kit de reparo de estado pi",
+            "cat":"kitReparo",
+            "valor": 5000
+        },
+        {
+            "nome":"Kit de upgrade de nível pi",
+            "cat":"kitReparo",
+            "valor": 5000
+        },
+        {
+            "nome":"Kit de reparo de estado sigma",
+            "cat":"kitReparo",
+            "valor": 7500
+        },
+        {
+            "nome":"Kit de upgrade de nível sigma",
+            "cat":"kitReparo",
+            "valor": 7500
+        },
+        {
+            "nome":"Kit de reparo de estado omega",
+            "cat":"kitReparo",
+            "valor": 10000
+        },
+        {
+            "nome":"Kit de upgrade de nível omega",
+            "cat":"kitReparo",
+            "valor": 10000
+        }
+    ]
+}
