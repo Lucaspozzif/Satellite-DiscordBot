@@ -2,11 +2,11 @@
     "token":"ODM5NDk2OTk1NTgzODE5Nzk3.YJKggA.vfgv41OsJWI9ZuUzUp65UfJCmVY",
     "validXp": 5,
     "cooldownPadrao": 3,
+    
     "deletar":8,
     "corNeutra":"#191970",
     "corVic":"#228B22",
     "corDer":"#DC143C",
     "daily": 100,
-    "luck": 20,
-    "teste":0
+    "luck": 20
 }
