@@ -8,7 +8,8 @@ c.commands = new Discord.Collection();
 c.cooldowns = new Discord.Collection();
 
 //Bancos de dados
-const { token, validXp, cooldownPadrao, deletar, luck } = require('./database/geral.json');
+const { validXp, cooldownPadrao, deletar, luck } = require('./database/geral.json');
+const {token} = require('./token.json')
 c.perfil = require('./database/perfil.json');
 c.server = require('./database/server.json');
 c.quadrantes = require('./database/quadrantes.json')
@@ -568,6 +569,6 @@ c.on('message', msg => {
 })
 
 //login
-c.login(token[0])
+c.login(token)
 
 //Funções
