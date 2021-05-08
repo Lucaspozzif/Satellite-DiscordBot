@@ -18,8 +18,8 @@ module.exports = {
             .setTitle(`Escolha entre **cara 🙂** ou **coroa 👑**`);
 
         const girando = new Discord.MessageEmbed()
-        .setColor(corNeutra)
-        .setTitle('Girando... 🪙')
+            .setColor(corNeutra)
+            .setTitle('Girando... 🪙')
 
         if (amount < 0 || amount > c.perfil[id].money || isNaN(amount)) {
             msg.channel.send(`Você não tem dinheiro o suficiente :(`)
@@ -49,7 +49,7 @@ module.exports = {
                 }
 
                 if (vic == true) {
-                    c.perfil[id].money += parseInt(2*amount)
+                    c.perfil[id].money += parseInt(2 * amount)
                     var result = new Discord.MessageEmbed()
                         .setColor(corVic)
                         .setTitle(`Parabéns! Era **${face}**, você ganhou **${amount}$** 🪙`)

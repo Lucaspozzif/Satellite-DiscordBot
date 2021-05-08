@@ -140,6 +140,8 @@ c.on('message', msg => {
     }
 
     if (!c.perfil[id]) {
+        let i = [Math.floor(Math.random()*16),Math.floor(Math.random()*16),Math.floor(Math.random()*16)]
+        let quadrante = `${i[0].toString(16)}${i[1].toString(16)}${i[2].toString(16)}`
         c.perfil[id] = {
             //prefixo do bot
             prefix: ';',
@@ -148,9 +150,7 @@ c.on('message', msg => {
             money: 100,
 
             //Localização espacial
-            x: 0,
-            y: 0,
-            z: 0,
+            quadrante: quadrante,
             planeta: 'none',
             status: 'none',
             inside: true,
@@ -568,6 +568,6 @@ c.on('message', msg => {
 })
 
 //login
-c.login(token)
+c.login(token[0])
 
 //Funções
