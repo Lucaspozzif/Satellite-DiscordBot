@@ -9,7 +9,7 @@ c.cooldowns = new Discord.Collection();
 
 //Bancos de dados
 const { validXp, cooldownPadrao, deletar, luck } = require('./database/geral.json');
-const {token} = require('./token.json')
+const { token } = require('./token.json')
 c.perfil = require('./database/perfil.json');
 c.server = require('./database/server.json');
 c.quadrantes = require('./database/quadrantes.json')
@@ -38,7 +38,7 @@ c.once('ready', () => {
 
                 if (!c.quadrantes[quadrante]) {
 
-                    const coresEstrela = ['#4169E1', '#6495ED', '#8B0000','#FF8C00','#FFA500','#FFD700','#FFFF00','#FFE4B5','#FFFAFA']
+                    const coresEstrela = ['#4169E1', '#6495ED', '#8B0000', '#FF8C00', '#FFA500', '#FFD700', '#FFFF00', '#FFE4B5', '#FFFAFA']
                     const corEstrela = coresEstrela[Math.floor(Math.random() * coresEstrela.length)]
 
                     const planeta = 2 + (Math.floor(Math.random() * 10))
@@ -82,23 +82,23 @@ c.once('ready', () => {
 
                         if (temAtmosfera == 0) {
                             atmosfera = true
-                            qtdAtmosfera = Math.floor(Math.random() * 10000)+1
+                            qtdAtmosfera = Math.floor(Math.random() * 10000) + 1
                         }
                         if (atmosfera == true && temOxigenio == 0) {
                             oxigenio = true
-                            qtdOxigenio = Math.floor(Math.random() * 100)+1
+                            qtdOxigenio = Math.floor(Math.random() * 100) + 1
                         }
                         if (atmosfera == true && temAgua == 0) {
                             agua = true
-                            qtdAgua = Math.floor(Math.random() * 1000)+1
+                            qtdAgua = Math.floor(Math.random() * 1000) + 1
                         }
                         if (atmosfera == true && agua == true && temVida == 0) {
                             vida = true
-                            qtdVida = Math.floor(Math.random() * 100)+1
+                            qtdVida = Math.floor(Math.random() * 100) + 1
                         }
                         if (temRecursos == 0) {
                             recursos = true
-                            qtdRecursos = Math.floor(Math.random() * 10000)+1
+                            qtdRecursos = Math.floor(Math.random() * 10000) + 1
                         }
 
                         c.quadrantes[quadrante].planetas[l] = {
@@ -141,7 +141,7 @@ c.on('message', msg => {
     }
 
     if (!c.perfil[id]) {
-        let i = [Math.floor(Math.random()*16),Math.floor(Math.random()*16),Math.floor(Math.random()*16)]
+        let i = [Math.floor(Math.random() * 16), Math.floor(Math.random() * 16), Math.floor(Math.random() * 16)]
         let quadrante = `${i[0].toString(16)}${i[1].toString(16)}${i[2].toString(16)}`
         c.perfil[id] = {
             //prefixo do bot
@@ -489,7 +489,6 @@ c.on('message', msg => {
     const serverId = msg.guild.id;
 
     if (!msg.content.startsWith(c.perfil[id].prefix)) {
-
     } else {
         const args = msg.content.slice(c.perfil[id].prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();

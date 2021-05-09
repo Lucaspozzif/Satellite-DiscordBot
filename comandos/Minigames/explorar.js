@@ -60,7 +60,7 @@ module.exports = {
                         msg.author.send(fim)
                         quad.planetas[args[0]].explorado.push(id)
 
-                    }, /*60 * (120 / ficha.nave.motor.att) * 1000*/1);
+                    }, 60 * (120 / ficha.nave.motor.att) * 1000);
 
                 }
 
