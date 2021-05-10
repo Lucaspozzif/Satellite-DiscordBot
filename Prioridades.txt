@@ -1,7 +1,7 @@
 otimizar ;loja, está com muitas reações. Tente agrupar em "pastas" para reduzir a quantidade daqueles comandos
 criar comando ;pousar, ele mudará o atributo c.perfil.planeta para o nome do planeta, e permitirá diversos comandos que só podem ser executados nos planetas, como o ;extrair água, fragmentos, ar, oxigênio, vida, ;explorar planeta. está diretamente ligado a criação do comando ;decolar
 adicionar a possibilidade de ver a ficha e o saldo dos outros player mencionando eles
-adicionar água, fragmentos, hidrogenio, oxigenio e ar a venda
+adicionar água, fragmentos, hidrogenio, oxigenio e ar a ;venda
 adicionar comando ;upgrade com limitador em lvl dez, ir além disso pode destruir o item e ele será deletado
-adicionar mais comandos de minigame, como o ;ppt, ;slots ;loteria 
+adicionar mais comandos de minigame, como o ;slots
 adicionar o sistema de dados 

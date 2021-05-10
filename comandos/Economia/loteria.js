@@ -15,7 +15,7 @@ module.exports = {
         const saldoEmbed = new Discord.MessageEmbed()
             .setColor(corNeutra)
             .setTitle(`Você quer comprar um bilhete da loteria?`)
-            .setDescription(`O bilhete custa aproximadamente **1% do valor** do prêmio acumulado\nValor do bilhete: **${Math.floor(c.multiplayer.loteria / 100) + 1}** 🪙`)
+            .setDescription(`O bilhete custa aproximadamente **0.1% do valor** do prêmio acumulado\nValor do bilhete: **${Math.floor(c.multiplayer.loteria / 1000) + 1}** 🪙`)
             .setFooter(`Prêmio acumulado: ${c.multiplayer.loteria}`)
 
         const girando = new Discord.MessageEmbed()
@@ -38,8 +38,8 @@ module.exports = {
                         return
                     }
 
-                    const bilhete = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
-                    const loteria = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
+                    const bilhete = [Math.floor(Math.random() * 5), Math.floor(Math.random() * 5), Math.floor(Math.random() * 5), Math.floor(Math.random() * 5), Math.floor(Math.random() * 5)]
+                    const loteria = [Math.floor(Math.random() * 5), Math.floor(Math.random() * 5), Math.floor(Math.random() * 5), Math.floor(Math.random() * 5), Math.floor(Math.random() * 5)]
                     var tense = ['x', 'x', 'x', 'x', 'x']
                     var count = 0
                     var pontos = 0
@@ -63,10 +63,10 @@ module.exports = {
                                 vic = false
                             }
                             if (pontos == 3) {
-                                amount = Math.floor(c.multiplayer.loteria / 100)
+                                amount = Math.floor(c.multiplayer.loteria / 1000)
                             }
                             if (pontos == 4) {
-                                amount = Math.floor(c.multiplayer.loteria / 10)
+                                amount = Math.floor(c.multiplayer.loteria / 100)
                             }
                             if (pontos == 5) {
                                 amount = c.multiplayer.loteria
@@ -83,12 +83,18 @@ module.exports = {
                                 
                             if(vic == true){
                                 c.perfil[id].money += amount
-                                c.multiplayer.loteria -= amount
+                                c.multiplayer.loteria -= amount/2
+                                c.multiplayer.money -= amount/2
                                 mes.edit(vitoria)
                             }else{
-                                c.perfil[id].money -= Math.floor(c.multiplayer.loteria / 100)+1
-                                c.multiplayer.loteria += Math.floor(c.multiplayer.loteria / 100)+1
-                                mes.edit(derrota)                                
+                                c.perfil[id].money -= Math.floor(c.multiplayer.loteria / 1000)+1
+                                c.multiplayer.loteria += Math.floor(c.multiplayer.loteria / 1000)-5
+                                c.multiplayer.money -= 6
+                                mes.edit(derrota)
+                                if(pontos == 5){
+                                    c.multiplayer.money -= 10000
+                                    c.multiplayer.loteria += 10000
+                                }                         
                             }
                             clearInterval(a)
                         }
