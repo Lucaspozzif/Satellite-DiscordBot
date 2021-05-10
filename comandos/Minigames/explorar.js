@@ -19,7 +19,7 @@ module.exports = {
         if (!args.length) {
             if(ficha.planeta == 'none' || quad.planetas[ficha.planeta.split('-')[0]].explorado.includes(id))return msg.reply('Aterrize em um planeta já explorado com ;aterrizar ou explore um com ;explorar <idPlaneta>')
             
-
+            
 
         } else {
 

@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const c = new Discord.Client();
 const { corNeutra, corDer, corVic } = require('../../database/geral.json')
-const { naves, canhoes, escudos, motores, geradores, catalisadores, extratores, trajes, armas, defesas, comidas, kitsReparo } = require('../../database/lojas.json')
 c.perfil = require('../../database/perfil.json')
+c.multiplayer = require('../../database/multiplayer.json')
 
 module.exports = {
     name: 'vender',
@@ -14,6 +14,10 @@ module.exports = {
         const id = msg.author.id
         const ficha = c.perfil[id]
         const item = ficha.inventario[args[0]]
+
+        if(args[0] == 'agua' || args[0] == 'água'){
+            
+        }
 
         if (isNaN(args[0]) || args[0] > ficha.inventario.length) return msg.reply('este item não tem o id listado')
 
@@ -41,9 +45,11 @@ module.exports = {
 
             mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                 const reaction = collected.first();
+                mes.reactions.removeAll()
 
                 if (reaction.emoji.name === '💲') {
                     ficha.money += Math.floor(item.valor * 0.85)
+                    c.multiplayer -= Math.floor(item.valor * 0.85)
                     ficha.inventario.splice(args[0], 1)
                     mes.edit(usado)
                 } else {

@@ -1,4 +1,4 @@
 
 module.exports = {
-    name: '**\nMinigames🤣**\`\`\`'
+    name: '\`\`\`**\nMinigames🤣**\`\`\`'
 }

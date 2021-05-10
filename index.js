@@ -13,6 +13,7 @@ const { token } = require('./token.json')
 c.perfil = require('./database/perfil.json');
 c.server = require('./database/server.json');
 c.quadrantes = require('./database/quadrantes.json')
+c.multiplayer = require('./database/multiplayer.json')
 
 //Encontrar comando
 const commandFolders = fs.readdirSync('./comandos');
@@ -511,6 +512,7 @@ c.on('message', msg => {
     fs.writeFile('./database/perfil.json', JSON.stringify(c.perfil), (err) => { if (err) console.log(err) })
     fs.writeFile('./database/server.json', JSON.stringify(c.server), (err) => { if (err) console.log(err) })
     fs.writeFile('./database/quadrantes.json', JSON.stringify(c.quadrantes), (err) => { if (err) console.log(err) })
+    fs.writeFile('./database/multiplayer.json', JSON.stringify(c.multiplayer), (err) => { if (err) console.log(err) })
 
 })
 

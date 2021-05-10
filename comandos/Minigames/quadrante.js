@@ -87,6 +87,8 @@ module.exports = {
                 }
                 mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
+
                     if (reaction.emoji.name == '⏮') {
                         if (i == 0) declarar(mes, 0)
                         else declarar(mes, i - 1)
@@ -126,7 +128,6 @@ module.exports = {
 
                         msg.author.send(attachment1)
                     }
-                    mes.reactions.removeAll()
                 })
             })
         }

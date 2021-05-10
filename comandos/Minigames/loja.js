@@ -4,6 +4,7 @@ const c = new Discord.Client();
 const { corNeutra, corDer, corVic } = require('../../database/geral.json')
 const { naves, canhoes, escudos, motores, geradores, catalisadores, extratores, trajes, armas, defesas, comidas, kitsReparo } = require('../../database/lojas.json')
 c.perfil = require('../../database/perfil.json')
+c.multiplayer = require('../../database/multiplayer.json')
 
 module.exports = {
     name: 'loja',
@@ -52,6 +53,7 @@ module.exports = {
 
                 mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    mes.reactions.removeAll()
                     const i = 0
 
                     if (reaction.emoji.name == '🇦') escolherNave(mes, 0)
@@ -68,8 +70,7 @@ module.exports = {
                     if (reaction.emoji.name == '🇱') escolherAgua(mes, 0)
                     if (reaction.emoji.name == '🇲') escolherKitSocorros(mes)
                     if (reaction.emoji.name == '🇳') menuInicial(mes)
-                    if (reaction.emoji.name == '🇴') escolherKitReparo(mes,0)
-                    mes.reactions.removeAll()
+                    if (reaction.emoji.name == '🇴') escolherKitReparo(mes, 0)
                 })
             })
         }
@@ -102,18 +103,23 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name == '↩️') menuInicial(mes)
+                    if (reaction.emoji.name == '↩️') {
+                        mes.reactions.removeAll()
+                        menuInicial(mes)
+                    }
                     if (reaction.emoji.name == '⏮') {
                         if (i == 0) escolherNave(mes, 0)
                         else escolherNave(mes, i - 1)
                     }
-                    if (reaction.emoji.name == '💲') comprar(mes, naves[i])
+                    if (reaction.emoji.name == '💲') {
+                        comprar(mes, naves[i])
+                    }
                     if (reaction.emoji.name == '⏭') {
                         if (i + 1 == naves.length) escolherNave(mes, naves.length - 1)
                         else escolherNave(mes, i + 1)
                     }
-                    mes.reactions.removeAll()
 
 
                 })
@@ -145,18 +151,23 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name == '↩️') menuInicial(mes)
+                    if (reaction.emoji.name == '↩️') {
+                        mes.reactions.removeAll()
+                        menuInicial(mes)
+                    }
                     if (reaction.emoji.name == '⏮') {
                         if (i == 0) escolherTraje(mes, 0)
                         else escolherTraje(mes, i - 1)
                     }
-                    if (reaction.emoji.name == '💲') comprar(mes, trajes[i])
+                    if (reaction.emoji.name == '💲') {
+                        comprar(mes, trajes[i])
+                    }
                     if (reaction.emoji.name == '⏭') {
                         if (i + 1 == trajes.length) escolherTraje(mes, trajes.length - 1)
                         else escolherTraje(mes, i + 1)
                     }
-                    mes.reactions.removeAll()
 
 
                 })
@@ -183,18 +194,23 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name == '↩️') menuInicial(mes)
+                    if (reaction.emoji.name == '↩️'){
+                        mes.reactions.removeAll()
+                         menuInicial(mes)
+                        }
                     if (reaction.emoji.name == '⏮') {
                         if (i == 0) escolherApendice(mes, 0, object, title, atributo)
                         else escolherApendice(mes, i - 1, object, title, atributo)
                     }
-                    if (reaction.emoji.name == '💲') comprar(mes, object[i])
+                    if (reaction.emoji.name == '💲') {
+                        comprar(mes, object[i])
+                    }
                     if (reaction.emoji.name == '⏭') {
                         if (i + 1 == object.length) escolherApendice(mes, object.length - 1, object, title, atributo)
                         else escolherApendice(mes, i + 1, object, title, atributo)
                     }
-                    mes.reactions.removeAll()
                 })
             })
         }
@@ -219,18 +235,23 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name == '↩️') menuInicial(mes)
+                    if (reaction.emoji.name == '↩️') {
+                        mes.reactions.removeAll()
+                        menuInicial(mes)
+                    }
                     if (reaction.emoji.name == '⏮') {
                         if (i == 0) escolherComida(mes, 0)
                         else escolherComida(mes, i - 1)
                     }
-                    if (reaction.emoji.name == '💲') comprar(mes, comidas[i])
+                    if (reaction.emoji.name == '💲') {
+                        comprar(mes, comidas[i])
+                    }
                     if (reaction.emoji.name == '⏭') {
                         if (i + 1 == comidas.length) escolherComida(mes, comidas.length - 1)
                         else escolherComida(mes, i + 1)
                     }
-                    mes.reactions.removeAll()
                 })
             })
         }
@@ -253,13 +274,18 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name == '↩️') menuInicial(mes)
+                    if (reaction.emoji.name == '↩️'){
+                        mes.reactions.removeAll()
+                         menuInicial(mes)
+                        }
                     if (reaction.emoji.name == '➖') {
                         if (quantidade < 10) escolherAgua(mes, 0)
                         else escolherAgua(mes, quantidade - 10)
                     }
                     if (reaction.emoji.name == '💲') {
+                        mes.reactions.removeAll()
                         if (quantidade > c.perfil[id].money) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(corDer)
@@ -277,7 +303,6 @@ module.exports = {
                         }
                     }
                     if (reaction.emoji.name == '➕') escolherAgua(mes, quantidade + 10)
-                    mes.reactions.removeAll()
                 })
             })
         }
@@ -298,6 +323,7 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    mes.reactions.removeAll()
 
                     if (reaction.emoji.name == '↩️') menuInicial(mes);
 
@@ -328,7 +354,6 @@ module.exports = {
                             )
                         }
                     }
-                    mes.reactions.removeAll()
                 })
             })
 
@@ -356,22 +381,28 @@ module.exports = {
                 }
                 message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name == '↩️') menuInicial(mes)
+                    if (reaction.emoji.name == '↩️') {
+                        mes.reactions.removeAll()
+                        menuInicial(mes)
+                    }
                     if (reaction.emoji.name == '⏮') {
                         if (i == 0) escolherKitReparo(mes, 0)
                         else escolherKitReparo(mes, i - 1)
                     }
-                    if (reaction.emoji.name == '💲') comprar(mes, kitsReparo[i])
+                    if (reaction.emoji.name == '💲') {
+                        comprar(mes, kitsReparo[i])
+                    }
                     if (reaction.emoji.name == '⏭') {
                         if (i + 1 == kitsReparo.length) escolherKitReparo(mes, kitsReparo.length - 1)
                         else escolherKitReparo(mes, i + 1)
                     }
-                    mes.reactions.removeAll()
                 })
             })
         }
         function comprar(mes, object) {
+            mes.reactions.removeAll()
             if (object.valor > c.perfil[id].money) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(corDer)

@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const c = new Discord.Client();
 const { corNeutra, corVic, corDer } = require('../../database/geral.json')
 c.perfil = require('../../database/perfil.json')
+c.multiplayer = require('../../database/multiplayer.json')
 
 module.exports = {
     name: 'flip',
@@ -11,7 +12,7 @@ module.exports = {
     args: true,
     usage: '<aposta>',
     execute(msg, args) {
-        const amount = args[0]
+        const amount = Math.floor(args[0])
         const id = msg.author.id
         const saldoEmbed = new Discord.MessageEmbed()
             .setColor(corNeutra)
@@ -25,7 +26,6 @@ module.exports = {
             msg.channel.send(`Você não tem dinheiro o suficiente :(`)
             return
         }
-        c.perfil[id].money -= parseInt(amount)
         msg.channel.send(saldoEmbed).then(mes => {
             mes.react('🙂')
             mes.react('👑');
@@ -49,16 +49,19 @@ module.exports = {
                 }
 
                 if (vic == true) {
-                    c.perfil[id].money += parseInt(2 * amount)
+                    c.perfil[id].money += amount
+                    c.multiplayer.money -= amount
                     var result = new Discord.MessageEmbed()
                         .setColor(corVic)
                         .setTitle(`Parabéns! Era **${face}**, você ganhou **${amount}$** 🪙`)
                 } else {
+                    c.perfil[id].money -= amount
+                    c.multiplayer.money += amount
                     result = new Discord.MessageEmbed()
                         .setColor(corDer)
                         .setTitle(`Sinto muito. Era **${face}**, você perdeu **${amount}$** 🪙`)
                 }
-                reaction.remove(id)
+                reaction.users.remove(msg.author.id)
 
                 mes.edit(girando)
                 setTimeout(() => {

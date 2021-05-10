@@ -77,6 +77,7 @@ module.exports = {
 
                 mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
+                    reaction.users.remove(id)
 
                     if (reaction.emoji.name == '⏮') {
                         if (num == 0) scroll(mes, 0)
@@ -85,7 +86,6 @@ module.exports = {
                         if (num < c.perfil[id].inventario.length - 1) scroll(mes, num + 2)
                         else scroll(mes, num)
                     }
-                    mes.reactions.removeAll()
                 })
             })
         }
