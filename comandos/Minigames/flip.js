@@ -58,6 +58,7 @@ module.exports = {
                         .setColor(corDer)
                         .setTitle(`Sinto muito. Era **${face}**, você perdeu **${amount}$** 🪙`)
                 }
+                reaction.remove(id)
 
                 mes.edit(girando)
                 setTimeout(() => {

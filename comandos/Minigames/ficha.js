@@ -25,13 +25,23 @@ module.exports = {
             }
         }
 
+        let energia = `${ficha.energia[0]}/${ficha.energia[1]}`
+        let oxigenio = `${ficha.oxigenio[0]}/${ficha.oxigenio[1]}`
+
+        if(ficha.inside == false){
+            energia = `${ficha.energia[2]}/${ficha.energia[3]} (traje)`
+            oxigenio = `${ficha.oxigenio[2]}/${ficha.oxigenio[3]} (traje)`
+
+        }
+
         const embed = new Discord.MessageEmbed()
             .setColor(corNeutra)
             .setTitle(`Relatório de bordo de ${msg.author.username}`)
             .addFields(
-                { name: 'Status do tripulante', value: `Status: ${ficha.status}\nHP 🩸: ${ficha.hp}%\nFome 🍜: ${ficha.fome}%\nSede 🥤: ${ficha.sede}%\nSono 🛏: ${ficha.sono}%\n\nNa nave 🚀: ${ficha.inside}` },
-                { name: 'Status da Nave', value: `Nome: ${ficha.nave.nome}\n Nível: ${ficha.nave.lvl}\nQuadrante 🌌: ${ficha.quadrante}\nPlaneta 🪐: ${ficha.planeta}\nEnergia ⚡️: ${ficha.energia[1]}/${ficha.energia[0]}\nCombustível 🛢: ${ficha.combustivel[1]}/${ficha.combustivel[0]}\nOxigênio 💨: ${ficha.oxigenio[1]}/${ficha.oxigenio[0]} (outros gases: ${ficha.carbono[1]})\nÁgua 💧: ${ficha.agua[1]}/${ficha.agua[0]}` },
-                { name: 'Apêndices da Nave', value: `Canhão ${ficha.nave.canhao.nome} ⚙️: ${ficha.nave.canhao.att} de dano\nEstado: ${ficha.nave.canhao.dur}%\n\nEscudo ${ficha.nave.escudo.nome} 🛡: ${ficha.nave.escudo.att} de defesa\nEstado: ${ficha.nave.escudo.dur}%\n\nMotor ${ficha.nave.motor.nome} 🚀: ${ficha.nave.motor.att} de velocidade\nEstado: ${ficha.nave.motor.dur}%\n\nGerador ${ficha.nave.gerador.nome} 🔋: ${ficha.nave.gerador.att} de energia\nEstado: ${ficha.nave.gerador.dur}%\n\nCatalisador ${ficha.nave.catalisador.nome} 🧫: ${ficha.nave.catalisador.att} de oxigênio\nEstado: ${ficha.nave.catalisador.dur}%\n\nExtrator ${ficha.nave.extrator.nome} 🔩: ${ficha.nave.extrator.att} de eficiência\nEstado: ${ficha.nave.extrator.dur}%` }
+                {name: 'Relatório pessoal:',value:`HP: ${ficha.hp}\n\nDinheiro: ${ficha.money}\nQuadrante: ${ficha.quadrante}\nPlaneta: ${ficha.planeta}\nStatus: ${ficha.status}\nNa nave: ${ficha.inside}\nFome: ${ficha.fome}%\nSede: ${ficha.sede}%\nSono: ${ficha.sono}%`},
+                {name: 'Recursos',value: `Energia: ${energia}\nHidrogênio: ${ficha.combustivel[1]}/${ficha.combustivel[0]}\nOxigênio: ${oxigenio}\n Água: ${ficha.agua[1]}/${ficha.agua[0]}\nFragmentos: ${ficha.fragmentos}`},
+                {name: `Nave ${ficha.nave.nome}:`,value:`Motor **${ficha.nave.motor.nome}**: ${ficha.nave.motor.att} de Velocidade\nEstado: ${ficha.nave.motor.dur}%\n\nGerador **${ficha.nave.gerador.nome}**: ${ficha.nave.gerador.att} de eficiência\nEstado: ${ficha.nave.gerador.dur}%\n\nCatalisador de O2 **${ficha.nave.catalisador.nome}**: ${ficha.nave.catalisador.att} de eficiência\nEstado: ${ficha.nave.catalisador.dur}%\n\nExtrator planetário **${ficha.nave.extrator.nome}**: ${ficha.nave.extrator.att} de coleta\nEstado: ${ficha.nave.extrator.dur}%`},
+                {name: `Traje ${ficha.traje.nome}`,value: `Arma ${ficha.traje.arma.nome}: ${ficha.traje.arma.att}/${ficha.traje.atkMax}\nEstado: ${ficha.traje.arma.dur}\n\nEscudo ${ficha.traje.defesa.nome}: ${ficha.traje.defesa.att}/${ficha.traje.defMax}\nEstado: ${ficha.traje.defesa.dur}`}
             );
 
         msg.author.send(embed)

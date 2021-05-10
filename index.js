@@ -156,46 +156,13 @@ c.on('message', msg => {
             status: 'none',
             inside: true,
 
-            //Atributos dos astronautas (atributo: [capacidade, conteúdo])
-            energia: [100, 80],
-            combustivel: [100, 80],
-            oxigenio: [100, 80],
-            carbono: [100, 20],
-            agua: [100, 50],
-            fragmentos: {
-                //São coletados ao explorar planetas ou usando o extrator
-                //estão listados pela ordem da tabela periodica:
-
-                detritos: 0,
-
-                //Baterias de lítio
-                litio: 0,
-                //Carenagens de fibra de carbono e diamantes
-                carbono: 0,
-                //Podem ser usados em carenagens
-                aluminio: 0,
-                titanio: 0,
-                ferro: 0,
-                //Baterias de nióbio/cobalto, canhões magnéticos, escudos magnéticos
-                cobalto: 0,
-                niobio: 0,
-                //Valor comercial
-                paladio: 0,
-                prata: 0,
-                //Gerador de energia nuclear de césio
-                cesio: 0,
-                //Canhões térmicos
-                tungstênio: 0,
-                //valor comercial
-                platina: 0,
-                //Escudos de campo elétrico
-                ouro: 0,
-                //Escudo de chumbo
-                chumbo: 0,
-                //Usina de chumbo
-                uranio: 0,
-
-            },
+            //Atributos dos astronautas (atributo: [conteúdoNave, capacidadeNave, conteúdoTraje ,capacidadeTraje])
+            energia: [100, 80,0, 0],
+            combustivel: [100, 80,0, 0],
+            oxigenio: [100, 80,0, 0],
+            carbono: [100, 20,0, 0],
+            agua: [100, 50,0, 0],
+            fragmento: 0,
 
             //Atributos fisiológicos
             fome: 100,
@@ -208,8 +175,6 @@ c.on('message', msg => {
                 cat: 'nave',
                 lvl: 1,
                 valor: 10000,
-                atkMax: 20,
-                defMax: 20,
                 hp: 1000,
 
                 //Limites da nave, podem ser aumentados com upgrades
@@ -219,26 +184,6 @@ c.on('message', msg => {
                 carbonoMax: 100,
                 aguaMax: 100,
 
-                canhao: {
-                    //Usado para atacar em explorações espaciais (;explore)
-                    nome: 'propulsor de fragmentos',
-                    cat: 'canhao',
-                    lvl: 1,
-                    valor: 500,
-                    att: 50,
-                    dur: 100
-
-                },
-                escudo: {
-                    //Usado para se defender de ataques em explorações espaciais (;explore)
-                    nome: 'chapa de metal',
-                    cat: 'escudo',
-                    lvl: 1,
-                    valor: 50,
-                    att: 20,
-                    dur: 100
-
-                },
                 motor: {
                     //Usado para saltar para outros quadrantes (;jump <x> <y> <z>)
                     nome: 'propulsor pequeno de combustivel sólido',
@@ -270,7 +215,7 @@ c.on('message', msg => {
 
                 },
                 extrator: {
-                    //Usado para coletar água, carbono e fragmentos de reparo dos planetas
+                    //Usado para coletar recursos dos planetas
                     nome: 'coletor espacial de broca',
                     cat: 'extrator',
                     lvl: 1,
@@ -345,16 +290,16 @@ c.on('message', msg => {
     const ficha = c.perfil[id]
     var sorteio = Math.floor(Math.random() * luck)
 
-    ficha.energia[0] = ficha.nave.energiaMax
-    ficha.combustivel[0] = ficha.nave.combustivelMax
-    ficha.oxigenio[0] = ficha.nave.oxigenioMax
-    ficha.carbono[0] = ficha.nave.carbonoMax
-    ficha.agua[0] = ficha.nave.aguaMax
+    ficha.energia[1] = ficha.nave.energiaMax
+    ficha.combustivel[1] = ficha.nave.combustivelMax
+    ficha.oxigenio[1] = ficha.nave.oxigenioMax
+    ficha.carbono[1] = ficha.nave.carbonoMax
+    ficha.agua[1] = ficha.nave.aguaMax
 
     //limitadores de chão
 
-    if (ficha.energia[1] < 0) {
-        ficha.energia[1] = 0
+    if (ficha.energia[0] < 0) {
+        ficha.energia[0] = 0
         if (sorteio == 0) ficha.hp--
         if (ficha.nave == true) {
             msg.reply(`Acabou a energia da sua nave, ligue o seu gerador com **${ficha.prefix}energia**`)
@@ -362,12 +307,12 @@ c.on('message', msg => {
             msg.reply(`Acabou a energia do seu traje, retorne para a nave com **${ficha.prefix}retornar**`)
         }
     }
-    if (ficha.combustivel[1] < 0) {
-        ficha.combustivel[1] = 0
+    if (ficha.combustivel[0] < 0) {
+        ficha.combustivel[0] = 0
         msg.reply(`Acabou o seu combustível, use o extrator com **${ficha.prefix}extrair**`)
     }
-    if (ficha.oxigenio[1] < 0) {
-        ficha.oxigenio[1] = 0
+    if (ficha.oxigenio[0] < 0) {
+        ficha.oxigenio[0] = 0
         if (sorteio == 0) ficha.hp--
         if (ficha.nave == true) {
             msg.reply(`Acabou o oxigênio da sua nave, ligue o seu catalisador com **${ficha.prefix}oxigenio**`)
@@ -375,11 +320,11 @@ c.on('message', msg => {
             msg.reply(`Acabou o oxigênio do seu traje, retorne para a nave com **${ficha.prefix}retornar**`)
         }
     }
-    if (ficha.carbono[1] < 0) {
-        ficha.carbono[1] = 0
+    if (ficha.carbono[0] < 0) {
+        ficha.carbono[0] = 0
     }
-    if (ficha.agua[1] < 0) {
-        ficha.agua[1] = 0
+    if (ficha.agua[0] < 0) {
+        ficha.agua[0] = 0
         msg.reply(`Acabou a sua água, use o extrator com **${ficha.prefix}extrair**`)
     }
     if (ficha.fome < 0) {
@@ -407,20 +352,20 @@ c.on('message', msg => {
     }
 
     //limitadores de topo
-    if (ficha.energia[1] > ficha.energia[0]) {
-        ficha.energia[1] = ficha.energia[0]
+    if (ficha.energia[0] > ficha.energia[1]) {
+        ficha.energia[0] = ficha.energia[1]
     }
-    if (ficha.combustivel[1] > ficha.combustivel[0]) {
-        ficha.combustivel[1] = ficha.combustivel[0]
+    if (ficha.combustivel[0] > ficha.combustivel[1]) {
+        ficha.combustivel[0] = ficha.combustivel[1]
     }
-    if (ficha.oxigenio[1] > ficha.oxigenio[0]) {
-        ficha.oxigenio[1] = ficha.oxigenio[0]
+    if (ficha.oxigenio[0] > ficha.oxigenio[1]) {
+        ficha.oxigenio[0] = ficha.oxigenio[1]
     }
-    if (ficha.carbono[1] > ficha.carbono[0]) {
-        ficha.carbono[1] = ficha.carbono[0]
+    if (ficha.carbono[0] > ficha.carbono[1]) {
+        ficha.carbono[0] = ficha.carbono[1]
     }
-    if (ficha.agua[1] > ficha.agua[0]) {
-        ficha.agua[1] = ficha.agua[0]
+    if (ficha.agua[0] > ficha.agua[1]) {
+        ficha.agua[0] = ficha.agua[1]
     }
     if (ficha.fome > 100) {
         ficha.fome = 100
@@ -444,7 +389,7 @@ c.on('message', msg => {
             ficha.oxigenio[1]--
             ficha.carbono[1]++
         }
-        if (sorteio == 2) ficha.agua[1]--
+        if (sorteio == 2) ficha.agua[0]--
         if (sorteio == 3) ficha.fome--
         if (sorteio == 4) ficha.sede--
         if (sorteio == 5) ficha.sono--
@@ -565,6 +510,8 @@ c.on('message', msg => {
     //Salvar
     fs.writeFile('./database/perfil.json', JSON.stringify(c.perfil), (err) => { if (err) console.log(err) })
     fs.writeFile('./database/server.json', JSON.stringify(c.server), (err) => { if (err) console.log(err) })
+    fs.writeFile('./database/quadrantes.json', JSON.stringify(c.quadrantes), (err) => { if (err) console.log(err) })
+
 })
 
 //login
