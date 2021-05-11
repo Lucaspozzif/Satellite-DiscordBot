@@ -1,16 +1,11 @@
 {
-  "name": "p-bot",
-  "version": "0.0.0",
-  "description": "bot do discord privado completo",
+  "name": "satellite",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Pozzi",
-  "license": "ISC",
-  "dependencies": {
-    "canvas": "^2.7.0",
-    "discord.js": "^12.5.3",
-    "fs": "0.0.1-security"
-  }
+  "author": "",
+  "license": "ISC"
 }

@@ -1,9 +1,8 @@
 //Bibliotecas do node
 const Discord = require('discord.js');
 const fs = require('fs');
-if(1 =1 ){
-    var asdf = sim
-}
+
+//teste de pull push
 
 //sla como chamar saporra
 const c = new Discord.Client();
