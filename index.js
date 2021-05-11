@@ -2,6 +2,8 @@
 const Discord = require('discord.js');
 const fs = require('fs')
 
+//teste de pull push
+
 //sla como chamar saporra
 const c = new Discord.Client();
 c.commands = new Discord.Collection();
