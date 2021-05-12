@@ -54,12 +54,13 @@ module.exports = {
                     const reaction = collected.first();
 
                     if (reaction) {
-                        if (ficha.combustivel[1] < Math.floor(quad.planetas[args[0]].g / 10) + ficha.nave.motor.att) return msg.reply('Você não tem combustível o suficiente, compre mais')
+                        if (ficha.combustivel[0] < Math.floor(quad.planetas[args[0]].g / 10) + ficha.nave.motor.att) return msg.reply('Você não tem combustível o suficiente, compre mais')
                         if (ficha.status !== 'none') return msg.reply(`Você não pode explorar um planeta enquanto está ${ficha.status}`)
                         if (quad.planetas[args[0]].explorado.includes(id)) return msg.reply('Você já explorou este planeta')
 
                         mes.edit(going)
-                        ficha.combustivel[1] -= Math.floor(quad.planetas[args[0]].g / 10) + ficha.nave.motor.att
+                        ficha.combustivel[0] -= Math.floor(quad.planetas[args[0]].g / 10) + ficha.nave.motor.att
+                        ficha.nave.motor.dur --
                         ficha.status = `explorando o ${quad.planetas[args[0]].nome}`
                         setTimeout(() => {
                             ficha.status = `none`

@@ -353,19 +353,19 @@ c.on('message', msg => {
     }
 
     //limitadores de topo
-    if (ficha.energia[0] > ficha.energia[1]) {
+    if (ficha.energia[1] < ficha.energia[0]) {
         ficha.energia[0] = ficha.energia[1]
     }
-    if (ficha.combustivel[0] > ficha.combustivel[1]) {
+    if (ficha.combustivel[1] < ficha.combustivel[0]) {
         ficha.combustivel[0] = ficha.combustivel[1]
     }
-    if (ficha.oxigenio[0] > ficha.oxigenio[1]) {
+    if (ficha.oxigenio[1] < ficha.oxigenio[0]) {
         ficha.oxigenio[0] = ficha.oxigenio[1]
     }
-    if (ficha.carbono[0] > ficha.carbono[1]) {
+    if (ficha.carbono[1] < ficha.carbono[0]) {
         ficha.carbono[0] = ficha.carbono[1]
     }
-    if (ficha.agua[0] > ficha.agua[1]) {
+    if (ficha.agua[1] < ficha.agua[0]) {
         ficha.agua[0] = ficha.agua[1]
     }
     if (ficha.fome > 100) {
@@ -443,7 +443,7 @@ c.on('message', msg => {
             || c.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
 
         if (!command) {
-            msg.channel.send(`Não consegui encontrar o comando **${msg.content}**. :(`).then(mes => {
+            msg.channel.send(`Não consegui encontrar **${msg.content}**. :(`).then(mes => {
                 mes.delete({ timeout: deletar * 1000 })
                 msg.delete({ timeout: deletar * 1000 })
             })
