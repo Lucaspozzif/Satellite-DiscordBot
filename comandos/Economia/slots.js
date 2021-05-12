@@ -53,7 +53,6 @@ module.exports = {
                msg.channel.send(`Você não tem dinheiro o suficiente :(`)
                return clearInterval(a)
             }
-            console.log(i)
             if(i > 3) return clearInterval(a)
             if (i == 3) {
                if (slot[0] == slot[1] || slot[0] == slot[2]) {
