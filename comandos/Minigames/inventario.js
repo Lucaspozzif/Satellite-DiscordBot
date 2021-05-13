@@ -13,6 +13,7 @@ module.exports = {
         const id = msg.author.id
         if (!args.length) {
 
+            if(c.perfil[id].inventario.length == 0)return msg.reply('Seu inventário está vazio, o que for comprado aparecerá aqui')
 
             const embed = new Discord.MessageEmbed()
                 .setColor(corNeutra)

@@ -32,6 +32,15 @@ c.once('ready', () => {
 
     c.user.setActivity('Admire as estrelas (;help)');
 
+    setInterval(() => {
+        for (let i = 0; i < c.multiplayer.acoes.length; i++) {
+            const mod = (Math.random()+0.5)
+            c.multiplayer.acoes[i].valor *= mod
+            c.multiplayer.acoes[i].valor = c.multiplayer.acoes[i].valor.toFixed(2)
+            console.log('Update das ações')
+        }
+    }, 600000);
+
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
             for (let k = 0; k < 16; k++) {
@@ -139,6 +148,13 @@ c.on('message', msg => {
             xp: [],
             level: []
         }
+    }
+    for (let i = 0; i < c.multiplayer.acoes.length; i++) {
+        if(!c.multiplayer.acoes[i].comprador.includes(id)){
+            c.multiplayer.acoes[i].comprador.push(id)
+            c.multiplayer.acoes[i].unidades.push(0)
+    }
+
     }
 
     if (!c.perfil[id]) {
@@ -290,6 +306,9 @@ c.on('message', msg => {
 
     const ficha = c.perfil[id]
     var sorteio = Math.floor(Math.random() * luck)
+
+    ficha.money = Math.floor(ficha.money)
+    c.multiplayer.money = Math.floor(c.multiplayer.money)
 
     ficha.energia[1] = ficha.nave.energiaMax
     ficha.combustivel[1] = ficha.nave.combustivelMax

@@ -36,7 +36,7 @@ module.exports = {
 
             mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                 const reaction = collected.first();
-                reaction.users.remove(msg.author.id);
+                reaction.users.remove(id);
                 if (reaction) {
                     const aterrizou = new Discord.MessageEmbed()
                         .setColor(corVic)

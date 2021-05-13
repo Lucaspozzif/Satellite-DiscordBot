@@ -8,169 +8,174 @@ module.exports = {
     name: 'vender',
     aliases: ['sell'],
     description: 'Equipe, use, coma ou qualquer outra coisa do seu inventário',
-    args: true,
-    usage: '<idItem>',
     execute(msg, args) {
         const id = msg.author.id
         const ficha = c.perfil[id]
-        const item = ficha.inventario[args[0]]
+        const item = ficha.inventario
 
-
-        const carregando = new Discord.MessageEmbed()
+        const menuVenda = new Discord.MessageEmbed()
             .setColor(corNeutra)
-            .setTitle('carregando...')
+            .setTitle('O que você quer vender')
+            .setDescription('🎒 Itens do inventário\n🛢 Combustível\n💨 Oxigênio\n💧 Água\n✨ Fragmentos')
 
-        let a = false
-
-        if (args[0] == 'atmosfera' || args[0] == 'hidrogenio' || args[0] == 'hidrogênio' || args[0] == 'ar') {
-            msg.channel.send(carregando).then(mes => {
-                vender(mes, 'combustível', 1, 10, 0)
-                a = true
-
-            })
-        }
-        if (args[0] == 'oxigenio' || args[0] == 'oxigênio') {
-            msg.channel.send(carregando).then(mes => {
-                vender(mes, 'oxigênio', 2, 10, 1)
-                a = true
-
-            })
-        }
-        if (args[0] == 'agua' || args[0] == 'água') {
-            msg.channel.send(carregando).then(mes => {
-                vender(mes, 'água', 2, 10, 2)
-                a = true
-
-            })
-        }
-        if (args[0] == 'recurso' || args[0] == 'recursos' || args[0] == 'fragmentos' || args[0] == 'fragmento') {
-            msg.channel.send(carregando).then(mes => {
-                vender(mes, 'fragmentos', 2, 10, 3)
-                a = true
-
-            })
-        }
-
-        if (a == false) return
-        if (isNaN(args[0]) || args[0] > ficha.inventario.length) return msg.reply('este item não tem o id listado')
-
-        const usar = new Discord.MessageEmbed()
-            .setColor(corNeutra)
-            .setTitle('Você quer vender este item?')
-            .setDescription(`Nome: ${item.nome}\nValor de venda: ${Math.floor(item.valor * 0.85)}`)
-
-        const cancelar = new Discord.MessageEmbed()
-            .setColor(corDer)
-            .setTitle('Cancelado')
-        const usado = new Discord.MessageEmbed()
-            .setColor(corVic)
-            .setTitle('O item foi vendido!')
-            .setDescription(`Nome: ${item.nome}\nValor de venda: ${Math.floor(item.valor * 0.85)}`)
-
-        msg.channel.send(usar).then(mes => {
-            mes.react('🪙');
-            mes.react('❌');
-
+        msg.channel.send(menuVenda).then(mes => {
+            mes.react('🎒');
+            mes.react('🛢');
+            mes.react('💨');
+            mes.react('💧');
+            mes.react('✨');
 
             const filter = (reaction, user) => {
-                return ['🪙', '❌'].includes(reaction.emoji.name) && user.id === id;
+                return ['🎒', '🛢', '💨', '💧', '✨'].includes(reaction.emoji.name) && user.id === id;
             }
 
             mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                 const reaction = collected.first();
                 mes.reactions.removeAll()
 
-                if (reaction.emoji.name === '🪙') {
-                    ficha.money += Math.floor(item.valor * 0.85)
-                    c.multiplayer -= Math.floor(item.valor * 0.85)
-                    ficha.inventario.splice(args[0], 1)
-                    mes.edit(usado)
+                if (reaction.emoji.name == '🎒') {
+                    venderInv(mes, 0)
+
+                } else if (reaction.emoji.name == '🛢') {
+                    vender(mes, 1, 0, 'Combustível')
+
+
+                } else if (reaction.emoji.name == '💨') {
+                    vender(mes, 2, 0, 'Oxigênio')
+
+                } else if (reaction.emoji.name == '💧') {
+                    vender(mes, 3, 0, 'Água')
+
                 } else {
-                    return mes.edit(cancelar)
+                    vender(mes, 2, 0, 'Fragmentos')
+
                 }
 
             })
         })
+        function vender(mes, valor, unidades, nome) {
+            const negociando = new Discord.MessageEmbed()
+                .setColor(corNeutra)
+                .setTitle('Vendendo')
+                .setDescription(`Nome: \`${nome}\`\nUnidades: \`${unidades}\`\nValor: \`$${unidades * valor}\``)
+
+            mes.edit(negociando).then(mes => {
+                mes.react('⏮');
+                mes.react('➖');
+                mes.react('💵');
+                mes.react('➕');
+                mes.react('⏭');
+
+                const filter = (reaction, user) => {
+                    return ['⏮', '➖', '💵', '➕', '⏭'].includes(reaction.emoji.name) && user.id === id;
+                }
+
+                mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                    const reaction = collected.first();
+                    reaction.users.remove(id)
+
+                    if (reaction.emoji.name == '⏮') {
+                        let units = unidades - 10
+                        if (units < 0) units = 0
+                        vender(mes, valor, units, nome)
+
+                    } else if (reaction.emoji.name == '➖') {
+                        let units = unidades - 1
+                        if (units < 0) units = 0
+                        vender(mes, valor, units, nome)
+
+                    } else if (reaction.emoji.name == '➕') {
+                        let units = unidades + 1
+                        if (units > item) units = item
+                        vender(mes, valor, units, nome)
+
+                    } else if (reaction.emoji.name == '⏭') {
+                        let units = unidades + 10
+                        if (units > item) units = item
+                        vender(mes, valor, units, nome)
+
+                    } else {
+                        const vendido = new Discord.MessageEmbed()
+                            .setColor(corVic)
+                            .setDescription(`Negócio fechado, você vendeu ${unidades} unidades de ${nome} por $${unidades * valor}`)
+
+                        mes.edit(vendido)
+                        if (nome == 'Combustível') {
+                            c.multiplayer.hidrogenio += unidades
+                            c.perfil[id].combustivel[0] -= unidades
+                        } else if (nome == 'Oxigênio') {
+                            c.multiplayer.oxigenio += unidades
+                            c.perfil[id].oxigenio[0] -= unidades
+                        } else if (nome == 'Água') {
+                            c.multiplayer.agua += unidades
+                            c.perfil[id].agua[0] -= unidades
+                        } else {
+                            c.multiplayer.fragmento += unidades
+                            c.perfil[id].fragmento -= unidades
+                        }
+
+                        c.multiplayer.money -= unidades * valor
+                        c.perfil[id].money += unidades * valor
 
 
-        function vender(mes, nome, valor, i, e) {
+                    }
 
-            if (i < 0) i = 0
+                })
+
+            })
+
+        }
+        function venderInv(mes, i) {
 
 
             const usar = new Discord.MessageEmbed()
                 .setColor(corNeutra)
                 .setTitle('Você quer vender este item?')
-                .setDescription(`Nome: ${nome}\nUnidades: ${i}\nValor: ${valor * i}`)
+                .setDescription(`Nome: ${item[i].nome}\nValor de venda: ${Math.floor(item[i].valor * 0.85)}`)
+
+            const vendido = new Discord.MessageEmbed()
+                .setColor(corVic)
+                .setTitle('O item foi vendido!')
+                .setDescription(`Nome: ${item.nome}\nValor de venda: ${Math.floor(item[i].valor * 0.85)}`)
 
             mes.edit(usar).then(mes => {
                 mes.react('⏮');
-                mes.react('➖');
-                mes.react('🪙');
-                mes.react('➕');
+                mes.react('💵');
                 mes.react('⏭');
 
-
                 const filter = (reaction, user) => {
-                    return ['⏮', '➖', '🪙', '➕', '⏭'].includes(reaction.emoji.name) && user.id === id;
+                    return ['⏮', '💵', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
 
                 mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
-                    reaction.users.remove(msg.author.id)
+                    reaction.users.remove(id)
 
-                    if (reaction.emoji.name === '⏮') {
-                        vender(mes, nome, valor, i - 10, e)
-                    } else if (reaction.emoji.name === '⏭') {
-                        vender(mes, nome, valor, i + 10)
-                    } else if (reaction.emoji.name === '➖') {
-                        vender(mes, nome, valor, i - 1)
-                    } else if (reaction.emoji.name === '➕') {
-                        vender(mes, nome, valor, i + 1)
+                    if (reaction.emoji.name == '⏮') {
+                        let unit = i - 1
+                        if (unit < 0) unit = 0
+                        venderInv(mes, unit)
+
+                    } else if (reaction.emoji.name == '⏭') {
+                        let unit = i + 1
+                        console.log(item.length)
+                        if (unit >= item.length) unit = item.length - 1
+                        venderInv(mes, unit)
+
                     } else {
-                        ficha.money += Math.floor(valor * i)
-                        c.multiplayer -= Math.floor(valor * i)
-
-                        if (e == 0) {
-                            if (i > ficha.combustivel[0]) i = ficha.combustivel[0]
-                            ficha.combustivel[0] -= i
-                            c.multiplayer.hidrogenio += i
-
-                        }
-                        if (e == 1) {
-                            if (i > ficha.oxigenio[0]) i = ficha.oxigenio[0]
-                            ficha.oxigenio[0] -= i
-                            c.multiplayer.oxigenio += i
-
-                        }
-                        if (e == 2) {
-                            if (i > ficha.agua[0]) i = ficha.agua[0]
-                            ficha.agua[0] -= i
-                            c.multiplayer.agua += i
-
-                        }
-                        if (e == 3) {
-                            if (i > ficha.fragmento) i = ficha.fragmento
-                            ficha.fragmento -= i
-                            c.multiplayer.fragmento += i
-
-                        }
-                        c.perfil[id].money += i * valor
-                        c.multiplayer.money -= i * valor
-
-                        const usado = new Discord.MessageEmbed()
+                        const vendido = new Discord.MessageEmbed()
                             .setColor(corVic)
-                            .setTitle(`Você vendeu ${i} unidades de ${nome} por ${valor*i}`)
-            
+                            .setDescription(`Negócio fechado, você vendeu ${item[i].nome} por $${Math.floor(item[i].valor * 0.85)}`)
 
-                        mes.edit(usado)
 
+                        c.multiplayer.money -= Math.floor(item[i].valor * 0.85)
+                        c.perfil[id].money += Math.floor(item[i].valor * 0.85)
+                        ficha.inventario.splice(i, 1)
+
+                        mes.edit(vendido)
                     }
-
                 })
             })
-
         }
     }
-
 }
