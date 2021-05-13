@@ -9,7 +9,7 @@ c.cooldowns = new Discord.Collection();
 
 //Bancos de dados
 const { validXp, cooldownPadrao, deletar, luck } = require('./database/geral.json');
-const { token } = require('./token.json')
+const { token } = require('./token.json');
 c.perfil = require('./database/perfil.json');
 c.server = require('./database/server.json');
 c.quadrantes = require('./database/quadrantes.json')
