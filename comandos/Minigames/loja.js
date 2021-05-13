@@ -51,7 +51,7 @@ module.exports = {
                     return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴'].includes(reaction.emoji.name) && user.id === id;
                 }
 
-                mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                mes.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     mes.reactions.removeAll()
                     const i = 0
@@ -101,7 +101,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '⏮', '💲', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     reaction.users.remove(id)
 
@@ -149,7 +149,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '⏮', '💲', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     reaction.users.remove(id)
 
@@ -192,7 +192,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '⏮', '💲', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     reaction.users.remove(id)
 
@@ -233,7 +233,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '⏮', '💲', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     reaction.users.remove(id)
 
@@ -272,7 +272,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '➖', '💲', '➕'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     reaction.users.remove(id)
 
@@ -321,7 +321,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '💲'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     mes.reactions.removeAll()
 
@@ -379,7 +379,7 @@ module.exports = {
                 const filter = (reaction, user) => {
                     return ['↩️', '⏮', '💲', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
-                message.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
                     reaction.users.remove(id)
 

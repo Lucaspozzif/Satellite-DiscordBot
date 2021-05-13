@@ -50,7 +50,7 @@ module.exports = {
                     return ['🔍'].includes(reaction.emoji.name) && user.id === id;
                 }
 
-                mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
+                mes.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                     const reaction = collected.first();
 
                     if (reaction) {
