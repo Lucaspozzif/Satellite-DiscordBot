@@ -30,7 +30,7 @@ module.exports = {
                 .setColor(corNeutra)
                 .setTitle('Você quer explorar este planeta?')
                 .setDescription(`Isso custará ${Math.floor(quad.planetas[args[0]].g / 10) + ficha.nave.motor.att} de combustível, e levará **${120 / ficha.nave.motor.att}** minutos`)
-                .addField(`Probabilidade de ter os recursos`, `Nome: ${quad.planetas[args[0]].nome}\nAtmosfera: 14.28%\nOxigênio: 2.04%\nÁgua: 2.04%\nVida: 0.29%\nRecursos: 33.33%`)
+                .addField(`Probabilidade de ter os recursos`, `Nome: ${quad.planetas[args[0]].nome}\nAtmosfera: 20%\nOxigênio: 4%\nÁgua: 4%\nVida: 0.8%\nRecursos: 50%`)
 
 
             const going = new Discord.MessageEmbed()

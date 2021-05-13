@@ -48,7 +48,7 @@ module.exports = {
                     atmosfera = 'Não encontrado'
                 }
                 if (quad.planetas[i].oxigenio[0] == true) {
-                    oxigenio = quad.planetas[i].oxigenio[1] + '%'
+                    oxigenio = quad.planetas[i].oxigenio[1]
                 } else {
                     oxigenio = 'Não encontrado'
                 }
@@ -74,7 +74,7 @@ module.exports = {
                 .setColor(corNeutra)
                 .setTitle(`Sistema do quadrante ${ficha.quadrante}`)
                 .setDescription(`Aqui estão listados os detalhes dos planetas do sistema deste quadrante`)
-                .addField(`${quad.planetas[i].nome}`, `Coordenadas: ${quad.planetas[i].x.toFixed(2)}, ${quad.planetas[i].y.toFixed(2)}\nGravidade: ${quad.planetas[i].g}\nAtmosfera: ${atmosfera}\nPorcentagem de Oxigênio: ${oxigenio}\nÁgua: ${agua}\nVida: ${vida}\nRecursos minerais: ${recursos}`)
+                .addField(`${quad.planetas[i].nome}`, `Coordenadas: \`${quad.planetas[i].x.toFixed(2)}, ${quad.planetas[i].y.toFixed(2)}\`\nGravidade: \`${quad.planetas[i].g}\`\nAtmosfera: \`${atmosfera}\`\n Oxigênio: \`${oxigenio}\`\nÁgua: \`${agua}\`\nVida: \`${vida}\`\nRecursos minerais: \`${recursos}\``)
                 .setFooter(`${i}/${quad.planetas.length - 1}`)
 
             mes.edit(embed).then(mes => {

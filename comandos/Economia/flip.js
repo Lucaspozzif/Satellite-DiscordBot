@@ -36,6 +36,7 @@ module.exports = {
 
             mes.awaitReactions(filter, { max: 1, time: 150000, errors: ['time'] }).then(collected => {
                 const reaction = collected.first();
+                reaction.users.remove(msg.author.id)
                 const aposta = Math.floor(Math.random() * 2)
                 var vic = false;
                 var face = 'coroa';
@@ -61,7 +62,6 @@ module.exports = {
                         .setColor(corDer)
                         .setTitle(`Sinto muito. Era **${face}**, você perdeu **${amount}$** 🪙`)
                 }
-                reaction.users.remove(msg.author.id)
 
                 mes.edit(girando)
                 setTimeout(() => {

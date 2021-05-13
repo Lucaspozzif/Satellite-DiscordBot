@@ -260,7 +260,7 @@ module.exports = {
                 .setTitle('Loja')
                 .setColor(corNeutra)
                 .setDescription(`Esta é a ala de água, veja detalhes abaixo`).addFields(
-                    { name: 'Água', value: `(-) ${quantidade}💧 (+)\n$${quantidade} 🪙` },
+                    { name: 'Água', value: `(-) ${quantidade}💧 (+)\n$${quantidade*3} 🪙` },
                 );
 
             mes.edit(escolhido).then(message => {

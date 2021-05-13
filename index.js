@@ -42,7 +42,7 @@ c.once('ready', () => {
                     const coresEstrela = ['#4169E1', '#6495ED', '#8B0000', '#FF8C00', '#FFA500', '#FFD700', '#FFFF00', '#FFE4B5', '#FFFAFA']
                     const corEstrela = coresEstrela[Math.floor(Math.random() * coresEstrela.length)]
 
-                    const planeta = 2 + (Math.floor(Math.random() * 10))
+                    const planeta = 3 + (Math.floor(Math.random() * 14))
 
                     c.quadrantes[quadrante] = {
                         estrela: {
@@ -57,11 +57,11 @@ c.once('ready', () => {
 
                     for (let l = 0; l < planeta; l++) {
 
-                        let temAtmosfera = Math.floor(Math.random() * 7)
-                        let temOxigenio = Math.floor(Math.random() * 7)
-                        let temAgua = Math.floor(Math.random() * 7)
-                        let temVida = Math.floor(Math.random() * 7)
-                        let temRecursos = Math.floor(Math.random() * 3)
+                        let temAtmosfera = Math.floor(Math.random() * 5)
+                        let temOxigenio = Math.floor(Math.random() * 5)
+                        let temAgua = Math.floor(Math.random() * 5)
+                        let temVida = Math.floor(Math.random() * 5)
+                        let temRecursos = Math.floor(Math.random() * 2)
 
                         let atmosfera = false
                         let oxigenio = false
@@ -87,11 +87,11 @@ c.once('ready', () => {
                         }
                         if (atmosfera == true && temOxigenio == 0) {
                             oxigenio = true
-                            qtdOxigenio = Math.floor(Math.random() * 100) + 1
+                            qtdOxigenio = Math.floor(Math.random() * 10000) + 1
                         }
                         if (atmosfera == true && temAgua == 0) {
                             agua = true
-                            qtdAgua = Math.floor(Math.random() * 1000) + 1
+                            qtdAgua = Math.floor(Math.random() * 10000) + 1
                         }
                         if (atmosfera == true && agua == true && temVida == 0) {
                             vida = true
@@ -158,11 +158,11 @@ c.on('message', msg => {
             inside: true,
 
             //Atributos dos astronautas (atributo: [conteúdoNave, capacidadeNave, conteúdoTraje ,capacidadeTraje])
-            energia: [100, 80,0, 0],
-            combustivel: [100, 80,0, 0],
-            oxigenio: [100, 80,0, 0],
-            carbono: [100, 20,0, 0],
-            agua: [100, 50,0, 0],
+            energia: [80, 80,80, 80],
+            combustivel: [80, 80,80, 80],
+            oxigenio: [80, 80,80, 80],
+            carbono: [80, 80,80, 80],
+            agua: [80, 80,80, 80],
             fragmento: 0,
 
             //Atributos fisiológicos
@@ -302,7 +302,7 @@ c.on('message', msg => {
     if (ficha.energia[0] < 0) {
         ficha.energia[0] = 0
         if (sorteio == 0) ficha.hp--
-        if (ficha.nave == true) {
+        if (ficha.inside == true) {
             msg.reply(`Acabou a energia da sua nave, ligue o seu gerador com **${ficha.prefix}energia**`)
         } else {
             msg.reply(`Acabou a energia do seu traje, retorne para a nave com **${ficha.prefix}retornar**`)
@@ -315,7 +315,7 @@ c.on('message', msg => {
     if (ficha.oxigenio[0] < 0) {
         ficha.oxigenio[0] = 0
         if (sorteio == 0) ficha.hp--
-        if (ficha.nave == true) {
+        if (ficha.inside == true) {
             msg.reply(`Acabou o oxigênio da sua nave, ligue o seu catalisador com **${ficha.prefix}oxigenio**`)
         } else {
             msg.reply(`Acabou o oxigênio do seu traje, retorne para a nave com **${ficha.prefix}retornar**`)
