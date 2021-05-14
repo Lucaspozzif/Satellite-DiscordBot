@@ -34,20 +34,43 @@ module.exports = {
                 mes.reactions.removeAll()
 
                 if (reaction.emoji.name == '🎒') {
+                    mes.react('➖');
+                    mes.react('💵');
+                    mes.react('➕');
                     venderInv(mes, 0)
 
                 } else if (reaction.emoji.name == '🛢') {
+                    mes.react('⏮');
+                    mes.react('➖');
+                    mes.react('💵');
+                    mes.react('➕');
+                    mes.react('⏭');
                     vender(mes, 1, 0, 'Combustível')
 
 
                 } else if (reaction.emoji.name == '💨') {
+                    mes.react('⏮');
+                    mes.react('➖');
+                    mes.react('💵');
+                    mes.react('➕');
+                    mes.react('⏭');
                     vender(mes, 2, 0, 'Oxigênio')
 
                 } else if (reaction.emoji.name == '💧') {
+                    mes.react('⏮');
+                    mes.react('➖');
+                    mes.react('💵');
+                    mes.react('➕');
+                    mes.react('⏭');
                     vender(mes, 3, 0, 'Água')
 
                 } else {
                     vender(mes, 2, 0, 'Fragmentos')
+                    mes.react('⏮');
+                    mes.react('➖');
+                    mes.react('💵');
+                    mes.react('➕');
+                    mes.react('⏭');
 
                 }
 
@@ -60,11 +83,6 @@ module.exports = {
                 .setDescription(`Nome: \`${nome}\`\nUnidades: \`${unidades}\`\nValor: \`$${unidades * valor}\``)
 
             mes.edit(negociando).then(mes => {
-                mes.react('⏮');
-                mes.react('➖');
-                mes.react('💵');
-                mes.react('➕');
-                mes.react('⏭');
 
                 const filter = (reaction, user) => {
                     return ['⏮', '➖', '💵', '➕', '⏭'].includes(reaction.emoji.name) && user.id === id;

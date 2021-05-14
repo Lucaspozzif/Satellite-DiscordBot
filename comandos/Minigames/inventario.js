@@ -21,6 +21,8 @@ module.exports = {
                 .setDescription(`abrindo...`)
 
             msg.channel.send(embed).then(mes => {
+                mes.react('⏮');
+                mes.react('⏭');
                 scroll(mes, 0)
             })
 
@@ -70,8 +72,6 @@ module.exports = {
                 .setFooter(`${num}-${num + 1}/${c.perfil[id].inventario.length - 1}`)
 
             mes.edit(embed).then(mes => {
-                mes.react('⏮');
-                mes.react('⏭');
                 const filter = (reaction, user) => {
                     return ['⏮', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
