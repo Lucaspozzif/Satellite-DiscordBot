@@ -56,7 +56,7 @@ c.once('ready', () => {
             }
             c.multiplayer.acoes[i].valor = c.multiplayer.acoes[i].valor.toFixed(5)
         }
-    }, 1);
+    }, 600000);
 
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
