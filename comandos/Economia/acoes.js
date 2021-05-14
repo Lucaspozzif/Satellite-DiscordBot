@@ -16,6 +16,9 @@ module.exports = {
         .setColor(corNeutra)
         .setTitle('carregando...')
         msg.channel.send(embed).then(mes => {
+            mes.react('⏮');
+            mes.react('📈');
+            mes.react('⏭');
             venderAcoes(mes, 0)
         })
         function venderAcoes(mes, i) {
@@ -27,9 +30,6 @@ module.exports = {
                 .setFooter('As ações sofrem alterações a cada 10 minutos')
 
             mes.edit(usar).then(mes => {
-                mes.react('⏮');
-                mes.react('📈');
-                mes.react('⏭');
 
                 const filter = (reaction, user) => {
                     return ['⏮', '📈', '⏭'].includes(reaction.emoji.name) && user.id === id;
@@ -51,6 +51,11 @@ module.exports = {
 
                     } else {
                         mes.reactions.removeAll()
+                        mes.react('⏮');
+                        mes.react('➖');
+                        mes.react('💵');
+                        mes.react('➕');
+                        mes.react('⏭');
                         mapear(mes, i, 0)
                     }
                 })
@@ -75,11 +80,6 @@ module.exports = {
                 .setFooter(`As ações sofrem alterações a cada 10 minutos - Seu dinheiro: $${c.perfil[id].money}`)
 
             mes.edit(detalhes).then(mes => {
-                mes.react('⏮');
-                mes.react('➖');
-                mes.react('💵');
-                mes.react('➕');
-                mes.react('⏭');
 
                 const filter = (reaction, user) => {
                     return ['⏮', '➖', '💵', '➕', '⏭'].includes(reaction.emoji.name) && user.id === id;

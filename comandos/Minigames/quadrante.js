@@ -29,6 +29,10 @@ module.exports = {
 
         msg.channel.send(embed).then(mes => {
             declarar(mes, 0)
+            mes.react('⏮');
+            mes.react('⏭');
+            mes.react('🗺');
+            mes.react('🔍');
         })
 
         function declarar(mes, i) {
@@ -78,10 +82,6 @@ module.exports = {
                 .setFooter(`${i}/${quad.planetas.length - 1}`)
 
             mes.edit(embed).then(mes => {
-                mes.react('⏮');
-                mes.react('⏭');
-                mes.react('🗺');
-                mes.react('🔍');
 
                 const filter = (reaction, user) => {
                     return ['⏮', '⏭', '🗺', '🔍'].includes(reaction.emoji.name) && user.id === id;
