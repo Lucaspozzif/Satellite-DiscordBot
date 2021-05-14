@@ -34,12 +34,29 @@ c.once('ready', () => {
 
     setInterval(() => {
         for (let i = 0; i < c.multiplayer.acoes.length; i++) {
-            const mod = (Math.random()+0.5)
+            const mod = (((Math.random()*4)/10)+0.805)
             c.multiplayer.acoes[i].valor *= mod
-            c.multiplayer.acoes[i].valor = c.multiplayer.acoes[i].valor.toFixed(2)
-            console.log('Update das ações')
+            if(c.multiplayer.acoes[i].valor <= 1){
+
+                c.multiplayer.acoes[i].valor = 10;
+                /*
+                c.multiplayer.acoes[i].comprador = []
+                c.multiplayer.acoes[i].unidades = []
+                */
+
+            }
+            if(c.multiplayer.acoes[i].valor > 100000){
+
+                c.multiplayer.acoes[i].valor = 100000;
+                /*
+                c.multiplayer.acoes[i].comprador = []
+                c.multiplayer.acoes[i].unidades = []
+                */
+
+            }
+            c.multiplayer.acoes[i].valor = c.multiplayer.acoes[i].valor.toFixed(5)
         }
-    }, 600000);
+    }, 1);
 
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
