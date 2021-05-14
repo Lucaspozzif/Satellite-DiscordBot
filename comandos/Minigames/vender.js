@@ -117,23 +117,46 @@ module.exports = {
                             .setColor(corVic)
                             .setDescription(`Negócio fechado, você vendeu ${unidades} unidades de ${nome} por $${unidades * valor}`)
 
-                        mes.edit(vendido)
+                        abc = true
                         if (nome == 'Combustível') {
+                            if(c.perfil[id].combustivel[0] < unidades){
+                                msg.reply('você não tem estes itens')
+                                abc = false
+                                return
+                            }
                             c.multiplayer.hidrogenio += unidades
                             c.perfil[id].combustivel[0] -= unidades
                         } else if (nome == 'Oxigênio') {
+                            if(c.perfil[id].oxigenio[0] < unidades){
+                                msg.reply('você não tem estes itens')
+                                abc = false
+                                return
+                            }
                             c.multiplayer.oxigenio += unidades
                             c.perfil[id].oxigenio[0] -= unidades
                         } else if (nome == 'Água') {
+                            if(c.perfil[id].agua[0] < unidades){
+                                msg.reply('você não tem estes itens')
+                                abc = false
+                                return
+                            }
                             c.multiplayer.agua += unidades
                             c.perfil[id].agua[0] -= unidades
                         } else {
+                            if(c.perfil[id].fragmento < unidades){
+                                msg.reply('você não tem estes itens')
+                                abc = false
+                                return
+                            }
                             c.multiplayer.fragmento += unidades
                             c.perfil[id].fragmento -= unidades
                         }
 
+                        if(abc == true){
+                        mes.edit(vendido)
                         c.multiplayer.money -= unidades * valor
                         c.perfil[id].money += unidades * valor
+                        }
 
 
                     }

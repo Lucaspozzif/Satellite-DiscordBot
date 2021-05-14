@@ -51,19 +51,19 @@ module.exports = {
 
                     } else {
                         mes.reactions.removeAll()
+                        mes.react('↩️');
                         mes.react('⏮');
-                        mes.react('➖');
                         mes.react('💵');
-                        mes.react('➕');
                         mes.react('⏭');
-                        mapear(mes, i, 0)
+                        mes.react('✖️');
+                        mapear(mes, i, 0,1)
                     }
                 })
             })
 
         }
         
-        function mapear(mes,i, unidades){
+        function mapear(mes,i, unidades, mult){
             let player = false
             for (let j = 0; j < actions[i].comprador.length; j++) {
                 if(actions[i].comprador[j] == id){
@@ -75,14 +75,14 @@ module.exports = {
             const detalhes = new Discord.MessageEmbed()
                 .setColor(corNeutra)
                 .setTitle(`Ação ${actions[i].nome}`)
-                .setDescription(`Valor atual: **$${actions[i].valor}**\nAções compradas: ${actions[i].unidades[player]}\nPatrimônio líquido: ${actions[i].unidades[player] * actions[i].valor}`)
-                .addField('Transação',`Ações: ${unidades}\nValor da compra/venda: $${unidades*actions[i].valor}`)
+                .setDescription(`Valor atual: **$${actions[i].valor}**\nAções compradas: \`${actions[i].unidades[player]}\`\nPatrimônio líquido: \`${actions[i].unidades[player] * actions[i].valor}\``)
+                .addField('Transação',`Valor da compra/venda: **$${unidades*actions[i].valor}**\nAções: \`${unidades}\`\n\nMultiplicador: \`${mult}\``)
                 .setFooter(`As ações sofrem alterações a cada 10 minutos - Seu dinheiro: $${c.perfil[id].money}`)
 
             mes.edit(detalhes).then(mes => {
 
                 const filter = (reaction, user) => {
-                    return ['⏮', '➖', '💵', '➕', '⏭'].includes(reaction.emoji.name) && user.id === id;
+                    return ['⏮', '↩️', '💵', '✖️', '⏭'].includes(reaction.emoji.name) && user.id === id;
                 }
 
                 mes.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
@@ -90,24 +90,35 @@ module.exports = {
                     reaction.users.remove(id)
 
                     if (reaction.emoji.name == '⏮') {
-                        let units = unidades - 10
+                        let units = unidades - (1*mult)
                         if (units < -actions[i].unidades[player]) units = -actions[i].unidades[player]
-                        mapear(mes, i, units)
-
-                    } else if (reaction.emoji.name == '➖') {
-                        let units = unidades - 1
-                        if (units < -actions[i].unidades[player]) units = -actions[i].unidades[player]
-                        mapear(mes, i, units)
-
-                    } else if (reaction.emoji.name == '➕') {
-                        let units = unidades + 1
-                        mapear(mes, i, units)
+                        mapear(mes, i, units,mult)
 
                     } else if (reaction.emoji.name == '⏭') {
-                        let units = unidades + 10
-                        mapear(mes, i, units)
+                        let units = unidades + (1*mult)
+                        mapear(mes, i, units,mult)
 
-                    }else{
+                    } else if (reaction.emoji.name == '↩️') {
+                        mes.reactions.removeAll()
+                        mes.react('⏮');
+                        mes.react('📈');
+                        mes.react('⏭');
+                        venderAcoes(mes, i)
+
+                    } else if (reaction.emoji.name == '✖️') {
+                        let units = unidades
+                        let abc = false
+                        if(mult == 100){
+                            mult = 1
+                            abc = true
+                        }
+                        if(mult == 50)mult = 100
+                        if(mult == 10)mult = 50
+                        if(mult == 1 && abc == false)mult = 10
+                        mapear(mes, i, units,mult)
+
+                    } else{
+                        mes.reactions.removeAll()
                         if(c.perfil[id].money < actions[i].valor*unidades)return msg.reply('Você não tem esse dinheiro')
 
                         c.perfil[id].money -= actions[i].valor*unidades
@@ -121,7 +132,6 @@ module.exports = {
                             .setDescription(`Valor atual: **$${actions[i].valor}**\nAções guardadas: ${actions[i].unidades[player]}\nPatrimônio líquido: ${actions[i].unidades[player] * actions[i].valor}`)
 
                             mes.edit(detalhes)
-                            mes.reactions.removeAll()
 
 
                     }
