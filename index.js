@@ -28,33 +28,33 @@ for (const folder of commandFolders) {
 
 //Inicializador
 c.once('ready', () => {
-    console.log('Bot on');
+    console.log(`${c.user.username} colocou o capacete`);
 
     c.user.setActivity('Admire as estrelas (;help)');
 
+    var contador = 0
     setInterval(() => {
         for (let i = 0; i < c.multiplayer.acoes.length; i++) {
             const mod = (((Math.random()*4)/10)+0.805)
             c.multiplayer.acoes[i].valor *= mod
-            if(c.multiplayer.acoes[i].valor <= 1){
-
-                c.multiplayer.acoes[i].valor = 10;
-                /*
-                c.multiplayer.acoes[i].comprador = []
-                c.multiplayer.acoes[i].unidades = []
-                */
-
+            if(c.multiplayer.acoes[i].valor < 1){
+                c.multiplayer.acoes[i].valor = 1;
             }
             if(c.multiplayer.acoes[i].valor > 100000){
-
                 c.multiplayer.acoes[i].valor = 100000;
-                /*
-                c.multiplayer.acoes[i].comprador = []
-                c.multiplayer.acoes[i].unidades = []
-                */
-
             }
             c.multiplayer.acoes[i].valor = c.multiplayer.acoes[i].valor.toFixed(5)
+
+            if(contador == 0){
+                c.multiplayer.acoes[i].grafico.push(c.multiplayer.acoes[i].valor)
+                if(c.multiplayer.acoes[i].grafico.length > 10){
+                    c.multiplayer.acoes[i].grafico.shift()
+                }
+
+            }
+            contador++
+            if(contador == 6)contador = 0
+
         }
     }, 600000);
 
