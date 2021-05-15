@@ -63,7 +63,11 @@ module.exports = {
                         mes.reactions.removeAll()
                         const cota = ['💲']
                         for (let j = 1; j < actions[i].grafico.length; j++) {
-                            cota.push(`${actions[i].grafico[j]} (${actions[i].grafico[j] / actions[i].grafico[j - 1]}%)`)
+                            var sinal = `↓`
+                            if(actions[i].grafico[j] / actions[i].grafico[j - 1] > 1){
+                                sinal = `↑`
+                            }
+                            cota.push(`$${actions[i].grafico[j]} ${sinal} (${(actions[i].grafico[j] / actions[i].grafico[j - 1]).toFixed(2)}%)`)
 
 
                         }
@@ -71,7 +75,7 @@ module.exports = {
 
                         const balanco = new Discord.MessageEmbed()
                             .setColor(corNeutra)
-                            .setTitle(`Detalhes sobre ${actions[i].name}`)
+                            .setTitle(`Detalhes sobre ${actions[i].nome}`)
                             .addFields(
                                 { name: 'Balanço da ação', value: `${cota.join('\n')}` }
                             )
@@ -85,7 +89,7 @@ module.exports = {
 
                             mes.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                                 const reaction = collected.first();
-                                reaction.users.remove(id)
+                                mes.reactions.removeAll()
 
                                 if (reaction) {
                                     mes.react('⏮');

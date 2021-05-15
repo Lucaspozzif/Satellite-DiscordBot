@@ -28,7 +28,7 @@ for (const folder of commandFolders) {
 
 //Inicializador
 c.once('ready', () => {
-    console.log(`${c.user.username} colocou o capacete`);
+    console.log(`${c.user.username} entrou na baixa [orbita]`);
 
     c.user.setActivity('Admire as estrelas (;help)');
 
@@ -45,13 +45,11 @@ c.once('ready', () => {
             }
             c.multiplayer.acoes[i].valor = c.multiplayer.acoes[i].valor.toFixed(5)
 
-            if(contador == 0){
                 c.multiplayer.acoes[i].grafico.push(c.multiplayer.acoes[i].valor)
-                if(c.multiplayer.acoes[i].grafico.length > 10){
+                if(c.multiplayer.acoes[i].grafico.length > 11){
                     c.multiplayer.acoes[i].grafico.shift()
                 }
 
-            }
             contador++
             if(contador == 6)contador = 0
 
