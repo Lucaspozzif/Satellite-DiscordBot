@@ -112,7 +112,7 @@ module.exports = {
                 } else {
                     return mes.edit(cancelar)
                 }
-            })
+            }).catch((e) => { e })
         })
     }
 }

@@ -102,7 +102,7 @@ module.exports = {
                             })
                         })
                     }
-                })
+                }).catch((e) => { e })
             })
 
             function mapear(mes, i, unidades, mult) {
@@ -175,7 +175,7 @@ module.exports = {
 
                             mes.edit(detalhes)
                         }
-                    })
+                    }).catch((e) => { e })
                 })
             }
         }

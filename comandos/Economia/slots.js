@@ -37,7 +37,7 @@ module.exports = {
                 }
                 reaction.users.remove(msg.author.id)
 
-            })
+            }).catch((e) => { e })
             
          })
       function roletar(mes) {
@@ -80,16 +80,6 @@ module.exports = {
                      const filter = (reaction, user) => {
                          return ['🪙'].includes(reaction.emoji.name) && user.id === id;
                      }
-         
-                     mes.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                         const reaction = collected.first();
-                         if(reaction){
-                            roletar(mes)
-         
-                         }
-                         reaction.users.remove(msg.author.id)
-         
-                     })
                      
                   })
                   return clearInterval(a)
@@ -106,14 +96,6 @@ module.exports = {
                   const filter = (reaction, user) => {
                       return ['🪙'].includes(reaction.emoji.name) && user.id === id;
                   }
-      
-                  mes.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                      const reaction = collected.first();
-                      reaction.users.remove(msg.author.id)
-                      if(reaction){
-                         roletar(mes)
-                      }
-                  })
                })
 
                return clearInterval(a)

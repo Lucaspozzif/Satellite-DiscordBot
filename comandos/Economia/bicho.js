@@ -91,7 +91,7 @@ module.exports = {
                     mes.edit(result)
                 }, 2000);
 
-            })
+            }).catch((e) => { e })
         })
     }
 

@@ -15,6 +15,7 @@ module.exports = {
 
         const menuVenda = new Discord.MessageEmbed()
             .setColor(corNeutra)
+
             .setTitle('O que você quer vender')
             .setDescription('🎒 Itens do inventário\n🛢 Combustível\n💨 Oxigênio\n💧 Água\n✨ Fragmentos')
 
@@ -74,7 +75,7 @@ module.exports = {
 
                 }
 
-            })
+            }).catch((e) => { e })
         })
         function vender(mes, valor, unidades, nome) {
             const negociando = new Discord.MessageEmbed()
@@ -161,7 +162,7 @@ module.exports = {
 
                     }
 
-                })
+                }).catch((e) => { e })
 
             })
 
@@ -215,7 +216,7 @@ module.exports = {
 
                         mes.edit(vendido)
                     }
-                })
+                }).catch((e) => { e })
             })
         }
     }

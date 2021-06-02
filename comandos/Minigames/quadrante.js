@@ -173,10 +173,10 @@ module.exports = {
 
                                     }, 60 * (120 / ficha.nave.motor.att) * 1000);
                                 }
-                            })
+                            }).catch((e) => { e })
                         })
                     }
-                })
+                }).catch((e) => { e })
             })
         }
         function desenharPlaneta(x, y, g, cor) {

@@ -120,7 +120,7 @@ module.exports = {
                     return mes.edit(cancelar)
                 }
 
-            })
+            }).catch((e) => { e })
         })
     }
 

@@ -87,7 +87,7 @@ module.exports = {
                         if (num < c.perfil[id].inventario.length - 1) scroll(mes, num + 2)
                         else scroll(mes, num)
                     }
-                })
+                }).catch((e) => { e })
             })
         }
 
